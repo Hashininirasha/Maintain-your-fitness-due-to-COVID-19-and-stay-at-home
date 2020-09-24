@@ -7,4 +7,4 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
 
 ![Screenshot (30)](https://user-images.githubusercontent.com/52965775/92108794-88777a00-ee05-11ea-83c1-7ef711b6fe82.png)
 
-![Screenshot (31)](https://user-images.githubusercontent.com/52965775/92108797-89101080-ee05-11ea-87a9-1e74947c88bf.png)
+
