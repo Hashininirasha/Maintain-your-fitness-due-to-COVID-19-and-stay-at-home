@@ -1,3 +1,48 @@
+<?php
+require_once "pdo.php";
+session_start();
+
+if(isset($_POST['login']) ) {
+
+ // Data validation
+    if (strlen($_POST['username']) < 1 || strlen($_POST['password']) < 1 ) {
+        $_SESSION["error"] = 'Please,You should fill all fields';   
+    }
+
+    else if (!is_string($_POST['username'])) {
+        $_SESSION["error"] = 'User Name  should include characters only'; 
+    }
+
+
+    else{
+
+        $usertname=$_POST['username'];
+        $password=$_POST['password'];
+
+
+        $sql = "INSERT INTO signup(username, password) VALUES (:username, :password)";
+        $stmt = $pdo->prepare($sql);
+        $stmt -> bindParam(':username',$username,PDO::PARAM_STR);
+        $stmt -> bindParam(':password',$password,PDO::PARAM_STR);
+
+    
+        $stmt->execute();
+
+        $lastinsertid=$pdo -> lastInsertId();
+        if($lastinsertid){
+            header('Location:index.php') ;
+            return;
+        }
+        
+        else{
+            echo "something went wrong";
+        }
+           }
+
+      }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -188,7 +233,7 @@ input[type=text],input[type=password] {
       <div class="m-t-lg">
         <ul class="list-inline">
           <li>
-            <input class="btn btn--form" type="submit" value="LOGIN" />
+            <input class="btn btn--form" type="submit" name="login" value="LOGIN" />
         </li>
           </li>
          
