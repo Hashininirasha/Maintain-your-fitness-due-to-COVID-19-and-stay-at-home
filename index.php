@@ -111,7 +111,7 @@ if(isset($_SESSION['user_name'])){
                                     if (isset($user_name) && is_null($user_name)==false) {
 					   
                                      echo '<div class="dropdown">
-                                       <button type="button" class="btn btn-rounded btn-outline-light dropdown-toggle table-btn hvr-underline-from-center" data-toggle="dropdown"><b>'.$user_name.'</b></button>
+                                       <button type="button" class="btn dropdown-toggle table-btn hvr-underline-from-center" data-toggle="dropdown"><b>'.$user_name.'</b></button>
                                           <div class="dropdown-menu">
                                              <a class="dropdown-item" href="logout.php">Logout</a>
                                           </div>
