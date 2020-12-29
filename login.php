@@ -30,6 +30,7 @@ if(isset($_POST['login']) ) {
 
         $lastinsertid=$pdo -> lastInsertId();
         if($lastinsertid){
+	    $_SESSION['user_name]=$username;	
             header('Location:index.php') ;
             return;
         }
@@ -219,6 +220,13 @@ input[type=text],input[type=password] {
     <div class="signup__overlay"></div>
   </div>
   <div class="container__child signup__form">
+     <?php
+         if (isset($_SESSION["error"]) ) {
+             echo('<p style="color:red">'.htmlentities($_SESSION["error"])."</p>\n");
+             unset($_SESSION["error"]);
+                           }
+    
+     ?> 
     <form action="#">
       <div class="form-group">
         <label for="username"><b>Username</b></label>
