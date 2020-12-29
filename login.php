@@ -5,7 +5,18 @@ session_start();
 if(isset($_POST['login']) ) {
 
  // Data validation
-    if (strlen($_POST['username']) < 1 || strlen($_POST['password']) < 1 ) {
+    $email=$_POST['email'];    
+    $stmt = $pdo->prepare("SELECT * FROM signup WHERE email=?");
+    $stmt->execute([$email]); 
+    $user = $stmt->fetch();
+
+    if (!$user) {
+        $_SESSION["error"]="Your are not a registered member";
+      }
+  
+	
+	
+    else if (strlen($_POST['username']) < 1 || strlen($_POST['password']) < 1 ) {
         $_SESSION["error"] = 'Please,You should fill all fields';   
     }
 
