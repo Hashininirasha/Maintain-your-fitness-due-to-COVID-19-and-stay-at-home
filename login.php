@@ -227,7 +227,7 @@ input[type=text],input[type=password] {
                            }
     
      ?> 
-    <form action="#">
+    <form method="post" action="index.php">
       <div class="form-group">
         <label for="username"><b>Username</b></label>
         <input class="form-control" type="text" name="username" id="username" required />
