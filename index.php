@@ -116,13 +116,13 @@ if(isset($_SESSION['user_name'])){
                                              <a class="dropdown-item" href="logout.php">Logout</a>
                                           </div>
                                       </div>';
-        }
+        
                                        
                       }
                                     else{
                                         echo '<a href="login.php" class="table-btn hvr-underline-from-center">Sign in</a>';
                       }		 
-						 
+			?>			 
                                 <!--<a href="#reservation" class="table-btn hvr-underline-from-center">Sign in</a>-->
                             </div>
                             <a href="#about">
