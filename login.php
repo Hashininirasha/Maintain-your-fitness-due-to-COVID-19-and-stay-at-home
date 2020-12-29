@@ -20,7 +20,7 @@ if(isset($_POST['login']) ) {
         $password=$_POST['password'];
 
 
-        $sql = "INSERT INTO signup(username, password) VALUES (:username, :password)";
+        $sql = "INSERT INTO user(username, password) VALUES (:username, :password)";
         $stmt = $pdo->prepare($sql);
         $stmt -> bindParam(':username',$username,PDO::PARAM_STR);
         $stmt -> bindParam(':password',$password,PDO::PARAM_STR);
