@@ -1,3 +1,12 @@
+<?php 
+require_once "pdo.php";
+session_start();
+if(isset($_SESSION['user_name'])){
+   $user_name=$_SESSION['user_name'];
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,7 +104,18 @@
                             <h2>#stay home #stay safe</h2>
                             
                             <div class="book-btn">
-                                <a href="#reservation" class="table-btn hvr-underline-from-center">Sign in</a>
+						 
+				<?php 
+					#If you already login,sign in button change as logout btn
+						 
+                                    if (isset($user_name) && is_null($user_name)==false) {
+                                       echo '<a href="index.php" class="table-btn hvr-underline-from-center">Log Out</a>';
+                      }
+                                    else{
+                                        echo '<a href="#reservation" class="table-btn hvr-underline-from-center">Sign in</a>';
+                      }		 
+						 
+                                <!--<a href="#reservation" class="table-btn hvr-underline-from-center">Sign in</a>-->
                             </div>
                             <a href="#about">
                                 <div class="mouse"></div>
