@@ -109,7 +109,15 @@ if(isset($_SESSION['user_name'])){
 					#If you already login,sign in button change as logout btn
 						 
                                     if (isset($user_name) && is_null($user_name)==false) {
-                                       echo '<a href="index.php" class="table-btn hvr-underline-from-center">Log Out</a>';
+					   
+                                     echo '<div class="dropdown">
+                                       <button type="button" class="btn btn-rounded btn-outline-light dropdown-toggle table-btn hvr-underline-from-center" data-toggle="dropdown"><b>'.$user_name.'</b></button>
+                                          <div class="dropdown-menu">
+                                             <a class="dropdown-item" href="logout.php">Logout</a>
+                                          </div>
+                                      </div>';
+        }
+                                       
                       }
                                     else{
                                         echo '<a href="#reservation" class="table-btn hvr-underline-from-center">Sign in</a>';
