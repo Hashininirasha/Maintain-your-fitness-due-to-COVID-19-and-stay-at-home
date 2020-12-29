@@ -5,9 +5,9 @@ session_start();
 if(isset($_POST['login']) ) {
 
  // Data validation
-    $email=$_POST['email'];    
-    $stmt = $pdo->prepare("SELECT * FROM signup WHERE email=?");
-    $stmt->execute([$email]); 
+    $username=$_POST['username'];    
+    $stmt = $pdo->prepare("SELECT * FROM signup WHERE username=?");
+    $stmt->execute([$username]); 
     $user = $stmt->fetch();
 
     if (!$user) {
