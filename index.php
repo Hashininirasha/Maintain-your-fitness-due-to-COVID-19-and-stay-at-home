@@ -3,6 +3,7 @@ require_once "pdo.php";
 session_start();
 if(isset($_SESSION['user_name'])){
    $user_name=$_SESSION['user_name'];
+
 }
 
 
@@ -103,28 +104,24 @@ if(isset($_SESSION['user_name'])){
                             <h1>Maintain your Fitness with us <p></p> <span class="typer" id="some-id" data-delay="100" data-delim=":" data-words="Daliy:Weekly:Monthly:Whole life time ;-)" data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1></p>
                             <h2>#stay home #stay safe</h2>
                             
-                            <div class="book-btn">
+               <div class="book-btn">             
 						 
 				<?php 
 					#If you already login,sign in button change as logout btn
 						 
                                     if (isset($user_name) && is_null($user_name)==false) {
-					   
-                                     echo '<div class="dropdown">
-                                       <button type="button" class="btn dropdown-toggle table-btn hvr-underline-from-center" data-toggle="dropdown"><b>'.$user_name.'</b></button>
-                                          <div class="dropdown-menu">
-                                             <a class="dropdown-item" href="logout.php">Logout</a>
-                                          </div>
-                                      </div>';
+									
+					                 
+                                     echo '<a href="logout.php" class="table-btn hvr-underline-from-center">'.$user_name.'</br>Log Out</a>';
         
                                        
                       }
                                     else{
                                         echo '<a href="login.php" class="table-btn hvr-underline-from-center">Sign in</a>';
                       }		 
-			?>			 
+						 ?>
                                 <!--<a href="#reservation" class="table-btn hvr-underline-from-center">Sign in</a>-->
-                            </div>
+                     </div>      
                             <a href="#about">
                                 <div class="mouse"></div>
                             </a>
@@ -151,10 +148,8 @@ if(isset($_SESSION['user_name'])){
                         <p>Today all are facing COVID-19 virus. All counties are facing that problem. Some countries were putting curfews to control this virus. In this curfew period citizens must pay attention to their nutrition because they can't go outside and people can't go to gymnasium to maintain their fitness. Some people do exercises as a habit in their day to day life. People do not get exercise, the result of that is that they become fat and they face many problems. Some people become diabetes patients. Some are becoming heart disease patients. Some are increasing their diseases.
 People are trapped at home. People can't buy Vegetables fruits and nutritional food in the market. They can't get a nutritional Diet. Especially children and older people. The result of that is that they will face many Complications.
 People can't go out to meet his or her Doctor to get nutritional advice. Sometimes they can't contact a doctor. Then they haven't got any advice or idea how to maintain their fitness. The result of that is some are become Overweight and some are become Underweight. Both are very harmful for the body. In covid-19 period people should protect their mental Integrity as well as their fitness of body.
-
 </p>
                        
-
                     </div>
                 </div>
                 <!-- end col -->
@@ -172,7 +167,6 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
         </div>
         <!-- end container -->
     </div>
-
     <div class="special-menu pad-top-100 parallax">
         <div class="container">
             <div class="row">
@@ -264,7 +258,6 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
         <!-- end container -->
     </div>
     <!-- end special-menu -->
-
     <div id="menu" class="menu-main pad-top-100 pad-bottom-100">
         <div class="container">
             <div class="row">
