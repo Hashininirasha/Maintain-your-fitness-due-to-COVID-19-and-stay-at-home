@@ -120,7 +120,7 @@ if(isset($_SESSION['user_name'])){
                                        
                       }
                                     else{
-                                        echo '<a href="#reservation" class="table-btn hvr-underline-from-center">Sign in</a>';
+                                        echo '<a href="login.php" class="table-btn hvr-underline-from-center">Sign in</a>';
                       }		 
 						 
                                 <!--<a href="#reservation" class="table-btn hvr-underline-from-center">Sign in</a>-->
