@@ -7,7 +7,7 @@ if (isset($_POST['login'])) {
 
     
     $email=$_POST['email'];    
-    $stmt = $pdo->prepare("SELECT * FROM user WHERE email=?");
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE email=?");
     $stmt->execute([$email]); 
     $user = $stmt->fetch();
 
@@ -24,7 +24,7 @@ if (isset($_POST['login'])) {
     $pass=$_POST['password'];
 
 
-    $sql="SELECT * FROM user where email=:eml AND password=:pass";
+    $sql="SELECT * FROM users where email=:eml AND password=:pass";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(":eml",$eml,PDO::PARAM_STR);
     $stmt->bindParam(":pass",$pass,PDO::PARAM_STR);  
