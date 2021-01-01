@@ -1,8 +1,8 @@
 <?php 
 require_once "pdo.php";
 session_start();
-if(isset($_SESSION['user_name'])){
-   $user_name=$_SESSION['user_name'];
+if(isset($_SESSION['user_email'])){
+   $user_email=$_SESSION['user_email'];
 
 }
 
@@ -27,7 +27,7 @@ if(isset($_SESSION['user_name'])){
     <meta name="author" content="">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href=" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
     <!-- Bootstrap CSS -->
@@ -109,10 +109,10 @@ if(isset($_SESSION['user_name'])){
 				<?php 
 					#If you already login,sign in button change as logout btn
 						 
-                                    if (isset($user_name) && is_null($user_name)==false) {
+                                    if (isset($user_email) && is_null($user_email)==false) {
 									
 					                 
-                                     echo '<a href="logout.php" class="table-btn hvr-underline-from-center">'.$user_name.'</br>Log Out</a>';
+                                     echo '<a href="logout.php" class="table-btn hvr-underline-from-center">'.$user_email.'</br>Log Out</a>';
         
                                        
                       }
