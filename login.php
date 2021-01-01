@@ -2,63 +2,71 @@
 require_once "pdo.php";
 session_start();
 
-if(isset($_POST['login']) ) {
+if (isset($_POST['login'])) {
+   
 
- // Data validation
-    $username=$_POST['username'];    
-    $stmt = $pdo->prepare("SELECT * FROM signup WHERE username=?");
-    $stmt->execute([$username]); 
+    
+    $email=$_POST['email'];    
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE email=?");
+    $stmt->execute([$email]); 
     $user = $stmt->fetch();
 
     if (!$user) {
         $_SESSION["error"]="Your are not a registered member";
       }
   
-	
-	
-    else if (strlen($_POST['username']) < 1 || strlen($_POST['password']) < 1 ) {
-        $_SESSION["error"] = 'Please,You should fill all fields';   
-    }
 
-    else if (!is_string($_POST['username'])) {
-        $_SESSION["error"] = 'User Name  should include characters only'; 
-    }
+                    
+    else if(isset($_POST['email']) || isset($_POST['password']) ) {
 
 
-    else{
-
-        $username=$_POST['username'];
-        $password=$_POST['password'];
+    $eml=$_POST['email'];
+    $pass=$_POST['password'];
 
 
-        $sql = "INSERT INTO user(username, password) VALUES (:username, :password)";
-        $stmt = $pdo->prepare($sql);
-        $stmt -> bindParam(':username',$username,PDO::PARAM_STR);
-        $stmt -> bindParam(':password',$password,PDO::PARAM_STR);
+    $sql="SELECT * FROM users where email=:eml AND password=:pass";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":eml",$eml,PDO::PARAM_STR);
+    $stmt->bindParam(":pass",$pass,PDO::PARAM_STR);  
+    $stmt->execute();
+    $row= $stmt->fetch(PDO::FETCH_ASSOC);
 
-    
-        $stmt->execute();
 
-        $lastinsertid=$pdo -> lastInsertId();
-        if($lastinsertid){
-		    $_SESSION['user_name']=$username;
-            header('Location:index.php') ;
-            return;
-        }
-        
-        else{
-            echo "something went wrong";
-        }
-           }
 
+       if ( $row === false ) {
+          if ($pass!=$_POST['password']) {
+            $_SESSION["error"]= "password incorrect";
       }
+           $_SESSION["error"]="Login incorrect";
+      
+       } 
+      else {
+
+          $_SESSION['user_email']=$eml;
+          header('Location: index.php') ;
+          return;
+    }
+
+}
+   
+
+  else{
+   $_SESSION["error"] = 'Please confirm you are not a robot'; 
+}
+
+}
+
+if(isset($_POST['signup'])){
+    header('Location: form.php') ;
+    return;
+}
 
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<title>Login</title>
 	
 <style>
@@ -221,22 +229,29 @@ input[type=text],input[type=password] {
       <h1 class="heading--primary"><b>Cheak your body fitness.</b></h1>
       <h2 class="heading--secondary"><i>Are you like to join with us?</i></h2>
     </div>
-    <div class="m-t-lg">
+<!--     <div class="m-t-lg">
         <ul class="list-inline">
           <li>
-            <input class="btn btn--form" type="submit" value="SIGN IN" />
+            <input class="btn btn--form" type="submit" name="signup" value="SIGN UP"/>
         </li>
           </li>
          
         </ul>
-      </div>
+      </div> -->
     <div class="signup__overlay"></div>
   </div>
   <div class="container__child signup__form card-body">
+ <?php
+     if (isset($_SESSION["error"]) ) {
+          echo('<p style="color:red">'.htmlentities($_SESSION["error"])."</p>\n");
+          unset($_SESSION["error"]);
+                           }
+    
+                        ?>     
     <form method="post">
       <div class="form-group">
-        <label for="username"><b>Username</b></label>
-        <input class="form-control" type="text" placeholder="Enter your Name" size="50" name="username" id="username" required />
+        <label for="email"><b>Email</b></label>
+        <input class="form-control" type="text" placeholder="Enter your Email" size="50" name="email" id="email" required />
       </div>
       
       <div class="form-group">
@@ -249,9 +264,11 @@ input[type=text],input[type=password] {
           <li>
             <input class="btn btn-secondary btn--form" type="submit" name="login" value="LOGIN"/>
         </li>
-          </li>
+          
          
         </ul>
+        <hr>
+        <p class="text-dark" align="center">Are you new member?<a href="form.php">Create your new account</a></p>
       </div>
     </form>  
   </div>
