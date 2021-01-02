@@ -297,7 +297,7 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
 						</script>
                    <?php 
                         
-                        if (isset($_POST['btnbmi']) && isset($_POST['week'])&& isset($_POST['bmi'])) {
+                        if (isset($_POST['btnbmi']) && isset($_POST['week'])&& isset($_POST['bmi']) &&  isset($user_email) && is_null($user_email)==false) {
                             $i=$_POST['week'];
                             $bmi=$_POST['bmi'];
                             $w2="no";
@@ -366,7 +366,7 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                    </div>     
                   <div class="col-sm order-sm-last">
                    <?php
-                if (isset($_POST['btnbmi'])) {
+                if (isset($_POST['btnbmi']) &&  isset($user_email) && is_null($user_email)==false) {
                     $sql="SELECT * from check_bmi";
                     $stmt=$pdo ->prepare($sql);
                     $stmt->execute();
