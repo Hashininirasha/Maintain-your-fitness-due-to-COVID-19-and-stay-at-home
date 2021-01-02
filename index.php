@@ -2,9 +2,12 @@
 require_once "pdo.php";
 session_start();
 if(isset($_SESSION['user_email'])){
-   $user_email=$_SESSION['user_email'];
-
+   $user_email=$_SESSION['user_email']; 
+   
+   $id = $_SESSION['currentid'];
 }
+
+
 
 
 ?>
@@ -31,7 +34,7 @@ if(isset($_SESSION['user_email'])){
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Site CSS -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Responsive CSS -->
@@ -269,7 +272,7 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                         
 						<p class="title-caption text-center">The body mass index (BMI) is a measure that uses your height and weight to work out if your weight is healthy. </p>
                         <script language="JavaScript">
-						<!--
+					
 						function calculateBmi() {
 						var weight = document.bmiForm.weight.value
 						var height = document.bmiForm.height.value
@@ -290,16 +293,122 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
 						alert("Please Fill in everything correctly")
 						}
 						}
-												//-->
+												
 						</script>
-						<form name="bmiForm"><h2>
+                   <?php 
+                        
+                        if (isset($_POST['btnbmi']) && isset($_POST['week'])&& isset($_POST['bmi'])) {
+                            $i=$_POST['week'];
+                            $bmi=$_POST['bmi'];
+                            $w2="no";
+                            $w3="no";
+                            $w4="no";
+                          switch ($i) {
+                            case 1:
+                                $sql = "INSERT INTO check_bmi(user_id,week_one,week_two,week_three,week_four) VALUES (:id,:weekone,:weektwo,:weekthree,:weekfour)";
+                                $stmt = $pdo->prepare($sql);
+                                $stmt -> bindParam(':weekone',$bmi,PDO::PARAM_STR);
+                                $stmt -> bindParam(':id',$id,PDO::PARAM_INT);
+                                $stmt -> bindParam(':wo',$w2,PDO::PARAM_STR);
+                                $stmt -> bindParam(':wt',$w3,PDO::PARAM_STR);
+                                $stmt -> bindParam(':wtt',$w4,PDO::PARAM_STR);
+                                $stmt->execute(); 
+                               break;
+                            case 2:
+                                $sql = "UPDATE check_bmi set week_two=:weektwo where user_id=:id";
+                                $stmt = $pdo->prepare($sql);
+                                $stmt -> bindParam(':weektwo',$bmi,PDO::PARAM_STR);
+                                $stmt -> bindParam(':id',$id,PDO::PARAM_INT);
+                                $stmt->execute(); 
+                                $row=$stmt->fetchAll(PDO::FETCH_ASSOC); 
+                               break;
+                            case 3:
+                                $sql = "UPDATE check_bmi set week_three=:weekthree where user_id=:id";
+                                $stmt = $pdo->prepare($sql);
+                                $stmt -> bindParam(':weekthree',$bmi,PDO::PARAM_STR);
+                                $stmt -> bindParam(':id',$id,PDO::PARAM_INT);
+                                $stmt->execute(); 
+                                $row=$stmt->fetchAll(PDO::FETCH_ASSOC); 
+                               break;
+                            case 4:
+                                $sql = "UPDATE check_bmi set week_four=:weekfour where user_id=:id";
+                                $stmt = $pdo->prepare($sql);
+                                $stmt -> bindParam(':weekfour',$bmi,PDO::PARAM_STR);
+                                $stmt -> bindParam(':id',$id,PDO::PARAM_INT);
+                                $stmt->execute(); 
+                                $row=$stmt->fetchAll(PDO::FETCH_ASSOC); 
+                               break;   
+                            default:
+                                $_SESSION['error']="Please Enter Week no 1-4";
+                             }
+                             
+
+                              if (isset($_SESSION["error"]) ) {
+                                 echo('<p style="color:red">'.htmlentities($_SESSION["error"])."</p>\n");
+                                 unset($_SESSION["error"]);
+
+}
+
+                   }
+
+                   ?>
+                <div class="row">
+                    <div class="col-sm-6 order-sm-first">
+						<form method="post" class="border-right mr-1" name="bmiForm"><h2>
+                        Enter your week No : <input type="number" name="week" size="1"  placeholder="It should be between 1-4"><br/><br>    
 						Your Weight(kg): <input type="text" name="weight" size="10"><br /><br>
 						Your Height(cm): <input type="text" name="height" size="10"><br /><br>
-						<input type="button" value="Calculate BMI" onClick="calculateBmi()"><br /><br>
+						<input class="btn btn-md btn-secondary" type="submit" name="btnbmi" value="Calculate BMI" onClick="calculateBmi()"><br /><br>
 						Your BMI: <input type="text" name="bmi" size="10"><br /><br>
 						This Means: <input type="text" name="meaning" size="25"><br /><br>
-						<input type="reset" value="Reset" /></h2>
+						<input class="btn btn-md btn-secondary" type="reset" value="Reset" /></h2>
 						</form>
+                   </div>     
+                  <div class="col-sm order-sm-last">
+                   <?php
+                if (isset($_POST['btnbmi'])) {
+                    $sql="SELECT * from check_bmi";
+                    $stmt=$pdo ->prepare($sql);
+                    $stmt->execute();
+                    $result=$stmt -> fetchAll(PDO::FETCH_OBJ);
+                    if ($stmt->rowCount()>0) {
+                        $cnt=1;
+                        foreach ($result as $row) {
+                            echo "<table class='table table-bordered table-dark'>";
+                            echo "<tr>";
+                            echo "<thead>";
+                            echo "<th>Week No</th>";
+                            echo "<th>BMI</th>";
+                            echo "</thead>";
+                            echo "</tr>";
+                            echo "<tbody>";
+                            echo "<tr>";
+                            echo "<th>1st Week</th>";
+                            echo "<th>".$row->week_one."</th>";
+                            echo "</tr>";
+                            echo "<tr>";
+                            echo "<th>2nd Week</th>";
+                            echo "<th>".$row->week_two."</th>";
+                            echo "</tr>";
+                            echo "<tr>";
+                            echo "<th>3rd Week</th>";
+                            echo "<th>".$row->week_three."</th>";
+                            echo "</tr>";
+                            echo "<tr>";
+                            echo "<th>4th Week</th>";
+                            echo "<th>".$row->week_four."</th>";
+                            echo "</tr>";
+                            echo "</tbody>";
+                            $cnt++;
+                            echo "</table>";
+                        }
+                        
+                    }
+                    }
+
+                        ?>
+                        </div>
+                        </div>
 					</div>
                    
 
