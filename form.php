@@ -21,7 +21,7 @@ if(isset($_POST['submit']) ) {
    }
  
    
-   else if (filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)) {
+   else if (filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)===false) {
           $_SESSION["error"] = 'Please,enter valid email';  
    }
 
