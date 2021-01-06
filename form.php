@@ -19,6 +19,12 @@ if(isset($_POST['submit']) ) {
             $_SESSION["error"] = 'Please,select your gender';  
         
    }
+ 
+   
+   else if (filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)) {
+          $_SESSION["error"] = 'Please,enter valid email';  
+   }
+
 
     else if (!is_string($_POST['name'])||!is_string($_POST['country'])||!is_numeric($_POST['age']) ) {
         $_SESSION["error"] = 'First Name and Last Name should include characters only'; 
