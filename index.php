@@ -361,12 +361,15 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
 						<input class="btn btn-md btn-secondary" type="submit" name="btnbmi" value="Calculate BMI" onClick="calculateBmi()"><br /><br>
 						Your BMI: <input type="text" name="bmi" size="10"><br /><br>
 						This Means: <input type="text" name="meaning" size="25"><br /><br>
-						<input class="btn btn-md btn-secondary" type="reset" value="Reset" /></h2>
+						 <div class="btn btn-group">
+                                                <input class="btn btn-md  border-dark btn-outline-secondary" type="reset" value="Reset" />
+                                                <input class="btn btn-md btn-outline-secondary" name="show" type="submit" value="Show Table" />
+                                                 </div></h2>
 						</form>
                    </div>     
                   <div class="col-sm order-sm-last">
                    <?php
-                if (isset($_POST['btnbmi']) &&  isset($user_email) && is_null($user_email)==false) {
+                if (isset($_POST['show']) &&  isset($user_email) && is_null($user_email)==false) {
                     $sql="SELECT * from check_bmi";
                     $stmt=$pdo ->prepare($sql);
                     $stmt->execute();
