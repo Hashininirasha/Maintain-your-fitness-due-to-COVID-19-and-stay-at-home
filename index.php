@@ -299,20 +299,26 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                         
                         if (isset($_POST['btnbmi']) && isset($_POST['week'])&& isset($_POST['bmi']) && isset($user_email) && is_null($user_email)==false) {
                             $i=$_POST['week'];
-                            $bmi=$_POST['bmi'];
+                            $w1="no";
                             $w2="no";
                             $w3="no";
                             $w4="no";
+                            $sql = "INSERT INTO check_bmi(user_id,week_one,week_two,week_three,week_four) VALUES (:id,:wo,:wt,:wtt,:wf)";
+                                $stmt = $pdo->prepare($sql);
+                                $stmt -> bindParam(':id',$id,PDO::PARAM_INT);
+                                $stmt -> bindParam(':wo',$w2,PDO::PARAM_STR);
+                                $stmt -> bindParam(':wt',$w2,PDO::PARAM_STR);
+                                $stmt -> bindParam(':wtt',$w3,PDO::PARAM_STR);
+                                $stmt -> bindParam(':wf',$w4,PDO::PARAM_STR);
+                                $stmt->execute(); 
                           switch ($i) {
                             case 1:
-                                $sql = "INSERT INTO check_bmi(user_id,week_one,week_two,week_three,week_four) VALUES (:id,:weekone,:weektwo,:weekthree,:weekfour)";
+                                $sql = "UPDATE check_bmi set week_one=:weekone where user_id=:id";
                                 $stmt = $pdo->prepare($sql);
                                 $stmt -> bindParam(':weekone',$bmi,PDO::PARAM_STR);
                                 $stmt -> bindParam(':id',$id,PDO::PARAM_INT);
-                                $stmt -> bindParam(':wo',$w2,PDO::PARAM_STR);
-                                $stmt -> bindParam(':wt',$w3,PDO::PARAM_STR);
-                                $stmt -> bindParam(':wtt',$w4,PDO::PARAM_STR);
                                 $stmt->execute(); 
+                                $row=$stmt->fetchAll(PDO::FETCH_ASSOC); 
                                break;
                             case 2:
                                 $sql = "UPDATE check_bmi set week_two=:weektwo where user_id=:id";
