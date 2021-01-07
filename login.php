@@ -30,6 +30,7 @@ if (isset($_POST['login'])) {
     $stmt->bindParam(":pass",$pass,PDO::PARAM_STR);  
     $stmt->execute();
     $row= $stmt->fetch(PDO::FETCH_ASSOC);
+ 
 
 
 
@@ -41,7 +42,8 @@ if (isset($_POST['login'])) {
       
        } 
       else {
-
+          $userid = $row['id'];
+          $_SESSION['currentid'] = $userid;
           $_SESSION['user_email']=$eml;
           header('Location: index.php') ;
           return;
@@ -249,6 +251,7 @@ input[type=text],input[type=password] {
     
                         ?>     
     <form method="post">
+      <input type="hidden" name="userid" value="<?php echo $id; ?>">
       <div class="form-group">
         <label for="email"><b>Email</b></label>
         <input class="form-control" type="text" placeholder="Enter your Email" size="50" name="email" id="email" required />

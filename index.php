@@ -295,9 +295,9 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
 						}
 												
 						</script>
-                   <?php 
+                   <?php  
                         
-                        if (isset($_POST['btnbmi']) && isset($_POST['week'])&& isset($_POST['bmi']) &&  isset($user_email) && is_null($user_email)==false) {
+                        if (isset($_POST['btnbmi']) && isset($_POST['week'])&& isset($_POST['bmi']) && isset($user_email) && is_null($user_email)==false) {
                             $i=$_POST['week'];
                             $bmi=$_POST['bmi'];
                             $w2="no";
@@ -350,7 +350,14 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
 }
 
                    }
+                  else if(isset($user_email) && is_null($user_email)==false){
+                        echo "<h3 class='alert alert-secondary text-danger'>Note : Please Sign up for doing your BMI test...</h3></br>";
+                   }
 
+                  else{
+                     echo "Somethong went wrong";
+
+                  }
                    ?>
                 <div class="row">
                     <div class="col-sm-6 order-sm-first">
@@ -361,12 +368,21 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
 						<input class="btn btn-md btn-secondary" type="submit" name="btnbmi" value="Calculate BMI" onClick="calculateBmi()"><br /><br>
 						Your BMI: <input type="text" name="bmi" size="10"><br /><br>
 						This Means: <input type="text" name="meaning" size="25"><br /><br>
-						<input class="btn btn-md btn-secondary" type="reset" value="Reset" /></h2>
+                        <input class="btn btn-md  border-dark btn-secondary" type="reset" value="Reset" />
+                        <div class="btn btn-group">
+                            
+                            <input class="btn btn-md btn-outline-dark" name="show" type="submit" value="Show Table" />
+                            <input class="btn btn-md btn-outline-dark" name="hide" type="submit" value="Hide Table" />
+                           
+                            
+                        </div>
+						</h2>
+
 						</form>
                    </div>     
                   <div class="col-sm order-sm-last">
-                   <?php
-                if (isset($_POST['btnbmi']) &&  isset($user_email) && is_null($user_email)==false) {
+                  <?php
+                if (isset($_POST['show']) &&  isset($user_email) && is_null($user_email)==false) {
                     $sql="SELECT * from check_bmi";
                     $stmt=$pdo ->prepare($sql);
                     $stmt->execute();
@@ -404,6 +420,10 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                         }
                         
                     }
+                    }
+
+                    if (isset($_POST['hide']) &&  isset($user_email) && is_null($user_email)==false) {
+                        echo " ";
                     }
 
                         ?>
