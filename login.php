@@ -5,40 +5,44 @@ session_start();
 if (isset($_POST['login'])) {
    
 
-    
     $email=$_POST['email'];    
     $stmt = $pdo->prepare("SELECT * FROM users WHERE email=?");
     $stmt->execute([$email]); 
     $user = $stmt->fetch();
 
     if (!$user) {
-        $_SESSION["error"]="Your are not a registered member";
+        $_SESSION["error"]="This email did not register";
       }
   
 
+    else if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)===false){
+         $_SESSION["error"]="Enter valid email";
+    }
                     
     else if(isset($_POST['email']) || isset($_POST['password']) ) {
 
 
     $eml=$_POST['email'];
-    $pass=$_POST['password'];
+    $pass=sha1($_POST['password']);
+
+    
 
 
     $sql="SELECT * FROM users where email=:eml AND password=:pass";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(":eml",$eml,PDO::PARAM_STR);
-    $stmt->bindParam(":pass",$pass,PDO::PARAM_STR);  
+    $stmt->bindParam(":pass",$pass,PDO::PARAM_STR);
     $stmt->execute();
-    $row= $stmt->fetch(PDO::FETCH_ASSOC);
- 
-
-
+    $row= $stmt->fetch(PDO::FETCH_ASSOC); 
+   
 
        if ( $row === false ) {
-          if ($pass!=$_POST['password']) {
+          if ($pass!=$row['password']) {
             $_SESSION["error"]= "password incorrect";
+      }    else{
+             $_SESSION["error"]="Login incorrect";
       }
-           $_SESSION["error"]="Login incorrect";
+           
       
        } 
       else {
@@ -53,7 +57,7 @@ if (isset($_POST['login'])) {
    
 
   else{
-   $_SESSION["error"] = 'Please confirm you are not a robot'; 
+   $_SESSION["error"] = 'something went wrong'; 
 }
 
 }
@@ -62,8 +66,6 @@ if(isset($_POST['signup'])){
     header('Location: form.php') ;
     return;
 }
-
-?>
 
 <!DOCTYPE html>
 <html>
