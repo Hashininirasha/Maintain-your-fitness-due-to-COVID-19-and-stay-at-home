@@ -15,7 +15,7 @@ if (isset($_POST['login'])) {
       }
   
 
-    else if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)!==false){
+    else if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)===false){
          $_SESSION["error"]="Enter valid email";
     }
                     
