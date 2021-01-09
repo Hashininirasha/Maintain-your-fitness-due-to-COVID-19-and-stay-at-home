@@ -389,8 +389,9 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                   <div class="col-sm order-sm-last">
                   <?php
                 if (isset($_POST['show']) &&  isset($user_email) && is_null($user_email)==false) {
-                    $sql="SELECT * from check_bmi";
+                    $sql="SELECT * from check_bmi where user_id=:fid";
                     $stmt=$pdo ->prepare($sql);
+		    $stmt -> bindParam(':fid',$id,PDO::PARAM_INT);
                     $stmt->execute();
                     $result=$stmt -> fetchAll(PDO::FETCH_OBJ);
                     if ($stmt->rowCount()>0) {
