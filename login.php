@@ -66,7 +66,7 @@ if(isset($_POST['signup'])){
     header('Location: form.php') ;
     return;
 }
-
+?>
 <!DOCTYPE html>
 <html>
 <head>
