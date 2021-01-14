@@ -377,8 +377,8 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                         <input class="btn btn-md  border-dark btn-secondary" type="reset" value="Reset" />
                         <div class="btn btn-group">
                             
-                            <input class="btn btn-md btn-outline-dark" name="show" type="submit" value="Show Table" />
-                            <input class="btn btn-md btn-outline-dark" name="hide" type="submit" value="Hide Table" />
+                            <input class="btn btn-md btn-outline-dark" name="show" type="submit" value="Show Table"  onclick="window.location='#table';"/ />
+                            <input class="btn btn-md btn-outline-dark" name="hide" type="submit" value="Hide Table"  onclick="window.location='#table';"//>
                            
                             
                         </div>
@@ -386,7 +386,7 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
 
 						</form>
                    </div>     
-                  <div class="col-sm order-sm-last">
+                  <div class="col-sm order-sm-last" id="table">
                   <?php
                 if (isset($_POST['show']) &&  isset($user_email) && is_null($user_email)==false) {
                     $sql="SELECT * from check_bmi where user_id=:fid";
