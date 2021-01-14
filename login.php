@@ -49,7 +49,7 @@ if (isset($_POST['login'])) {
           $userid = $row['id'];
           $_SESSION['currentid'] = $userid;
           $_SESSION['user_email']=$eml;
-          header('Location: index.php') ;
+          header('Location: index.php?id='.$userid) ;
           return;
     }
 
