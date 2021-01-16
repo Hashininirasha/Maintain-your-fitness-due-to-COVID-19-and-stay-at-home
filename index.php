@@ -8,7 +8,6 @@ if(isset($_SESSION['user_email'])){
 }
 
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -297,29 +296,36 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                    <?php  
                         
                 if (isset($_POST['btnbmi']) && isset($_POST['week'])&& isset($_POST['bmi']) && isset($user_email) && is_null($user_email)==false) {
-                            $i=$_POST['week'];
+                            
                             $bmi=$_POST['bmi'];
-
+                            $i=$_POST['week'];
+                            $_SESSION['week'] = $i;
+                     
                             $w1="no";
                             $w2="no";
                             $w3="no";
                             $w4="no";
+                            $mean="no";
                             
                             
-                            $sql = "INSERT INTO check_bmi(user_id,week_one,week_two,week_three,week_four) VALUES (:id,:wo,:wt,:wtt,:wf)";
+                            $sql = "INSERT INTO check_bmi(user_id,week_one,week_two,week_three,week_four,mean) VALUES (:id,:wo,:wt,:wtt,:wf,:mean)";
                                 $stmt = $pdo->prepare($sql);
                                 $stmt -> bindParam(':id',$id,PDO::PARAM_INT);
                                 $stmt -> bindParam(':wo',$w2,PDO::PARAM_STR);
                                 $stmt -> bindParam(':wt',$w2,PDO::PARAM_STR);
                                 $stmt -> bindParam(':wtt',$w3,PDO::PARAM_STR);
                                 $stmt -> bindParam(':wf',$w4,PDO::PARAM_STR);
+                                $stmt -> bindParam(':mean',$mean,PDO::PARAM_STR);
                                 $stmt->execute(); 
+                            
                             
                             
                                
                                            
-                         switch ($i) {
+                         switch ($_SESSION['week']) {
                             case 1:
+                             
+
                                 $sql = "UPDATE check_bmi set week_one=:weekone where user_id=:id";
                                 $stmt = $pdo->prepare($sql);
                                 $stmt -> bindParam(':weekone',$bmi,PDO::PARAM_STR);
@@ -327,9 +333,12 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                 $stmt->execute(); 
                                 $row=$stmt->fetchAll(PDO::FETCH_ASSOC); 
 
+
                                 
                                break;
                             case 2:
+                                
+
                                 $sql = "UPDATE check_bmi set week_two=:weektwo where user_id=:id";
                                 $stmt = $pdo->prepare($sql);
                                 $stmt -> bindParam(':weektwo',$bmi,PDO::PARAM_STR);
@@ -339,6 +348,8 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                 
                                break;
                             case 3:
+                                
+
                                 $sql = "UPDATE check_bmi set week_three=:weekthree where user_id=:id";
                                 $stmt = $pdo->prepare($sql);
                                 $stmt -> bindParam(':weekthree',$bmi,PDO::PARAM_STR);
@@ -349,6 +360,7 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                 return;
                                break;
                             case 4:
+                               
                                 $sql = "UPDATE check_bmi set week_four=:weekfour where user_id=:id";
                                 $stmt = $pdo->prepare($sql);
                                 $stmt -> bindParam(':weekfour',$bmi,PDO::PARAM_STR);
@@ -361,9 +373,6 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                 $_SESSION['error']="Please Enter Week no 1-4";
                              }
                              
-
-
-
 
                           if (isset($_SESSION["error"]) ) {
                                  echo('<p style="color:red">'.htmlentities($_SESSION["error"])."</p>\n");
@@ -393,6 +402,7 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
 						<input class="btn btn-md btn-secondary" type="submit" name="btnbmi" value="Calculate BMI" onClick="calculateBmi()"><br /><br>
 						Your BMI: <input type="text" name="bmi" size="10"><br /><br>
 						This Means: <input type="text" name="meaning" size="25"><br /><br>
+                        <input type="hidden" name="sum">
                         <input class="btn btn-md  border-dark btn-secondary" type="reset" value="Reset" />
                         <div class="btn btn-group">
                             
@@ -416,6 +426,15 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                     if ($stmt->rowCount()>0) {
                         $cnt=1;
                         foreach ($result as $row) {
+                            $sum=0.00;
+                            $Mean=0.00;
+                            $week_one = $row->week_one;
+                            $week_two = $row->week_two;
+                            $week_three = $row->week_three;
+                            $week_four = $row->week_four;
+                        
+
+
                             echo "<table class='table table-bordered table-dark'>";
                             echo "<tr>";
                             echo "<thead>";
@@ -440,27 +459,32 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                             echo "<th>4th Week</th>";
                             echo "<th>".$row->week_four."</th>";
                             echo "</tr>";
+                            echo "<tr>";
+                            echo "<th>Mean</th>";
+                            echo "<th>".$row->mean."</th>";
+                            echo "</tr>";
                             echo "</tbody>";
                             $cnt++;
                             echo "</table>";
 
                             
+                            $Mean=($sum+floatval($week_one) +floatval($week_two) +floatval($week_three)+floatval($week_four))/$_SESSION['week'];
 
-                       
-
-                       
-                        
+                    
+                            $sql = "UPDATE check_bmi set mean=:mean where user_id=:id";
+                                $stmt = $pdo->prepare($sql);
+                                $stmt -> bindParam(':mean',strval($Mean),PDO::PARAM_STR);
+                                $stmt -> bindParam(':id',$id,PDO::PARAM_INT);
+                                $stmt->execute(); 
+                                $row=$stmt->fetchAll(PDO::FETCH_OBJ);                        
                     }
 
                   
                         }
-                       
 
                     }
 
                    
-              
-
                     if (isset($_POST['hide']) &&  isset($user_email) && is_null($user_email)==false) {
                         echo " ";
                       
@@ -759,10 +783,6 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
     <script src="js/bootstrap.min.js"></script>
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
-		
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
