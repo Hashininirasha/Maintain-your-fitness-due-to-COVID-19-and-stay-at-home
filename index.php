@@ -345,7 +345,7 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
 
                                $Mean=0.00;
                                $Mean=(floatval($weekOne) +floatval($weekTwo) +floatval($weekThree)+floatval($weekFour))/$_SESSION['week'];
-                                echo $Mean ;
+                        
                          
 
                               $sql = "UPDATE check_bmi set mean=:mean where user_id=:id";
