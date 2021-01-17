@@ -35,6 +35,7 @@ if(isset($_SESSION['user_email'])){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Site CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/check_button_style.scss">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css">
     <!-- color -->
@@ -304,8 +305,11 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                             if ($_POST['week']>0 && $_POST['week']<5) {
                                
                               $i=$_POST['week'];
-                              $_SESSION['week']=$i;
+                              
+                             
                             }
+
+                             $_SESSION['week']=$i;
                             
                      
                             $w1="no";
@@ -334,31 +338,19 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                             
                             foreach ($result as $row) {
 
-                              
-                                
                                $weekOne= $row->week_one;
-                               
                                $weekTwo= $row->week_two;
-
                                $weekThree= $row->week_three;
                                $weekFour= $row->week_four;
-
-                               $Mean=0.00;
-                               $Mean=(floatval($weekOne) +floatval($weekTwo) +floatval($weekThree)+floatval($weekFour))/$_SESSION['week'];
-                        
-                         
-
-                              $sql = "UPDATE check_bmi set mean=:mean where user_id=:id";
-                                $stmt = $pdo->prepare($sql);
-                                $stmt -> bindParam(':mean',strval($Mean),PDO::PARAM_STR);
-                                $stmt -> bindParam(':id',$id,PDO::PARAM_INT);
-                                $stmt->execute();
-                                $row=$stmt->fetchAll(PDO::FETCH_OBJ); 
-
+                            
+                               
+                               
                               
   
                                            
                          switch ($_SESSION['week']) {
+                            
+
                             case 1:
                                 if ($weekOne=="no") {
                                 $sql = "UPDATE check_bmi set week_one=:weekone where user_id=:id";
@@ -404,15 +396,18 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                 $row=$stmt->fetchAll(PDO::FETCH_ASSOC); 
                                 
                                break;   
-}
+}                     
+
                                
                              
                              }
 
+
                           
                    }
 
-                  else if(isset($_POST['check']) && $_POST['check']=="")
+                  if(isset($_POST['check']) && $_POST['check']=="" && isset($_SESSION['week']) && isset($_POST['btnbmi']))
+                             
                       {
                        $sql="SELECT * from check_bmi where user_id=:id";
                             $stmt=$pdo ->prepare($sql);
@@ -426,46 +421,101 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                $weektwo= $row->week_two;
                                $weekthree= $row->week_three;
                                $weekfour= $row->week_four;
-                               $Meanw=$row->mean;
+                               
 
+                                
 
-                       if($weekone!="no" && $weektwo!="no" && $weekthree!="no" && $weekfour!="no" && $Meanw!="no" && $_SESSION['week']==1){
+                       if($weekone!="no" && $weektwo!="no" && $weekthree!="no" && $weekfour!="no" && $_SESSION['week']==1){
                           $sql = "DELETE from check_bmi  where user_id=:id";
+                    
                                      $stmt = $pdo->prepare($sql);
                                      $stmt -> bindParam(':id',$id,PDO::PARAM_INT);
                                      $stmt->execute(); 
                  }
+
+                       
                  }
                   }
+
               
-                  else if(isset($user_email) && is_null($user_email)==false){
+                  if(isset($user_email) && is_null($user_email)==false){
                         echo "<h3 class='alert alert-secondary text-danger'>Note : Please Sign up for doing your BMI test...</h3></br>";
                    }
 
-                  else{
-                     echo "Somethong went wrong";
-
-                  }
+                 
                    ?>
                 <div class="row">
                     <div class="col-sm-6 order-sm-first">
-						<form method="post" class="border-right mr-1" name="bmiForm"><h2>
-                        Are you new user <input type="checkbox" name="check" value="yes"><br/><br>  
-                        Enter your week No : <input type="number" name="week" size="1"  placeholder="It should be between 1-4"><br/><br>    
-						Your Weight(kg): <input type="text" name="weight" size="10"><br /><br>
-						Your Height(cm): <input type="text" name="height" size="10"><br /><br>
-						<input class="btn btn-md btn-secondary" type="submit" name="btnbmi" value="Calculate BMI" onClick="calculateBmi()"><br /><br>
-						Your BMI: <input type="text" name="bmi" size="10"><br /><br>
-						This Means: <input type="text" name="meaning" size="25"><br /><br>
-                        <input type="hidden" name="sum">
-                        <input class="btn btn-md  border-dark btn-secondary" type="reset" value="Reset" />
-                        <div class="btn btn-group">
-                            
-                           <input class="btn btn-md btn-outline-dark" name="show" type="submit" value="Show Table" onclick="window.location='#graph';"/>
-                           <input class="btn btn-md btn-outline-dark" name="hide" type="submit" value="Hide Table" onclick="window.location='#graph';"/>
+						<form method="post" class="border-right row" name="bmiForm"><h2>
+                     <?php 
+                        if(isset($user_email) && is_null($user_email)==false){
+                        echo '<div class="custom-control custom-switch col-sm-12 ml-2 alert-light text-dark">
+                                 <input type="checkbox" class="custom-control-input" name="check" id="customSwitch2">
+                                <label class="custom-control-label" for="customSwitch2"> Are you new user ? </label>
+                              </div><br/><br/>  
+                    
+                              <label class="col-sm-6"> Enter your week No</label><input type="number" name="week" min="1" max="4" class="col-sm-6" placeholder="Between 1 - 4 weeks"><br/><br/>';
+                   }
+                     ?>
                            
-                            
+						<label class="col-sm-6">Your Weight(kg)</label><input type="text" name="weight" class="col-sm-6"><br /><br/>
+						<label class="col-sm-6">Your Height(cm)</label><input type="text" name="height" class="col-sm-6"><br /><br/>
+                        
+						<input class="btn btn-md btn-secondary ml-5" type="submit" name="btnbmi" value="Calculate BMI" onClick="calculateBmi()"><br><br>
+                         <?php 
+                        if(isset($user_email) && is_null($user_email)==false){
+                        echo '<div class="btn btn-group">
+                                <input class="btn btn-md btn-outline-dark" name="show" type="submit" value="Show Table" onclick="window.location="#graph";"/>
+                                <input class="btn btn-md btn-outline-dark" name="hide" type="submit" value="Hide Table" onclick="window.location="#graph";"/>
+                              </div><br /><br>';
+                   }
+                     if (isset($_POST['btnbmi']) && isset($_POST['bmi']) && !isset($user_email)) {
+                        $Weight=$_POST['weight'];
+                        $Height=$_POST['height'];
+                        
+                        $BMI=$Weight/($Height/100*$Height/100);   
+
+                            if($BMI < 18.5){
+                               $status = "That you are Underweight.";
+                        }
+                           else if($BMI  > 18.5 && $BMI  < 25){
+                               $status = "That you are healthy.";
+                        }
+                           else if($BMI  > 25){
+                              $status = "That you have overweight.";
+                        } 
+                           else{
+                              $status = "This is impossible";
+                           }
+
+                        echo "<div class='card card-container'>
+                               <div class='card-header inline-block'>
+                                
+                                <button type=button' class='close mr-0 mt-0' aria-label='Close'>
+                                  <span aria-hidden='true'>&times;</span>
+                                </button>
+                                <p class='text-center'>BMI Report</p>
+                                </div>
+                                <table class='bg-light table border-lg card-body table-active'>
+                                <tr><th>Your Weight    :</th><td>".$Weight."</td></tr>
+                                <tr><th>Your Height    :</th><td>".$Height."</td></tr>
+                                <tr><th>Your BMI Value :</th><td>".$BMI."</td></tr>
+                                <tr><th>Your Status    :</th><td>".$status."</td></tr>
+                             </table></div>";
+                                 
+                      
+
+                                         }
+
+
+                     ?>
+                        
+                        <div class="d-none">
+						  <input type="text" name="bmi" size="10">
+						  <input type="text" name="meaning" size="25">
                         </div>
+                        <!-- <input class="btn btn-md  border-dark btn-secondary" type="reset" value="Reset" /> -->
+                        
 						</h2>
 
 						</form>
@@ -481,10 +531,23 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                     if ($stmt->rowCount()>0) {
                         $cnt=1;
                         foreach ($result as $row) {
+                               $week_one= $row->week_one;  
+                               $week_two= $row->week_two;
+                               $week_three= $row->week_three;
+                               $week_four= $row->week_four;
                             
-                        
+                        $Mean=(floatval($week_one) +floatval($week_two) +floatval($week_three)+floatval($week_four))/$_SESSION['week'];
+                               $meanWEEK= strval($Mean);
+                                
 
-
+                              $sql = "UPDATE check_bmi set mean=:mean where user_id=:fid";
+                                $stmt = $pdo->prepare($sql);
+                                $stmt -> bindParam(':mean',$meanWEEK,PDO::PARAM_STR);
+                                $stmt -> bindParam(':fid',$id,PDO::PARAM_INT);
+                                $stmt->execute();
+                                $result=$stmt -> fetchAll(PDO::FETCH_ASSOC);
+                                
+                                
                             echo "<table class='table table-bordered table-dark'>";
                             echo "<tr>";
                             echo "<thead>";
@@ -511,22 +574,13 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                             echo "</tr>";
                             echo "<tr>";
                             echo "<th>Mean</th>";
-                            echo "<th>".$row->mean."</th>";
+                            echo "<th>".$meanWEEK."</th>";
                             echo "</tr>";
                             echo "</tbody>";
                             $cnt++;
                             echo "</table>";
 
-                            
-                             
-                                
-
-
-                            
-                                
-
-                            
-                       
+   
                     }
 
                   
