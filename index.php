@@ -438,7 +438,7 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                   }
 
               
-                  if(isset($user_email) && is_null($user_email)==false){
+                  if(!isset($user_email)){
                         echo "<h3 class='alert alert-secondary text-danger'>Note : Please Sign up for doing your BMI test...</h3></br>";
                    }
 
