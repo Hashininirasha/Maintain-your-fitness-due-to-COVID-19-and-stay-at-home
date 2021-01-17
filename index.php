@@ -549,33 +549,39 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                 $result=$stmt -> fetchAll(PDO::FETCH_ASSOC);
                                 
                                 
-                            echo "<table class='table table-bordered table-dark'>";
+                            echo "<table class='table table-bordered table-dark responsive'>";
                             echo "<tr>";
                             echo "<thead>";
                             echo "<th>Week No</th>";
                             echo "<th>BMI</th>";
+                            echo "<th>Status</th>";
                             echo "</thead>";
                             echo "</tr>";
                             echo "<tbody>";
                             echo "<tr>";
                             echo "<th>1st Week</th>";
                             echo "<th>".$row->week_one."</th>";
+                            echo "<th class=".$colour."></th>";
                             echo "</tr>";
                             echo "<tr>";
                             echo "<th>2nd Week</th>";
                             echo "<th>".$row->week_two."</th>";
+                            echo "<th class=".$colour."></th>";
                             echo "</tr>";
                             echo "<tr>";
                             echo "<th>3rd Week</th>";
                             echo "<th>".$row->week_three."</th>";
+                            echo "<th class=".$colour."></th>";
                             echo "</tr>";
                             echo "<tr>";
                             echo "<th>4th Week</th>";
                             echo "<th>".$row->week_four."</th>";
+                            echo "<th class=".$colour."></th>";
                             echo "</tr>";
                             echo "<tr>";
                             echo "<th>Mean</th>";
                             echo "<th>".$meanWEEK."</th>";
+                            echo "<th class=".$colour."></th>";
                             echo "</tr>";
                             echo "</tbody>";
                             $cnt++;
@@ -586,7 +592,18 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
 
                   
                         }
+                     echo "<hr><br><table class='row justify-content-center'><tr>
+                                          <td class='col-sm-1 bg-danger'></td>
+                                          <td class='col-sm-2'>Underweight</td>
+                                          <td class='col-sm-1'>|</td>
+                                          <td class='col-sm-1 bg-success'></td>
+                                          <td class='col-sm-3'>Healthy</td>
+                                          <td class='col-sm-1'>|</td>
+                                          <td class='col-sm-1 bg-warning'></td>
+                                          <td class='col-sm-2'>Overweight</td>
+                                          </tr></table><br><br>";
 
+			
                     }
 
                    
