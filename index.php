@@ -463,12 +463,13 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                         
 						<input class="btn btn-md btn-secondary ml-5" type="submit" name="btnbmi" value="Calculate BMI" onClick="calculateBmi()"><br><br>
                          <?php 
-                        if(isset($user_email) && is_null($user_email)==false){
-                        echo '<div class="btn btn-group">
-                                <input class="btn btn-md btn-outline-dark" name="show" type="submit" value="Show Table" onclick="window.location="#graph";"/>
-                                <input class="btn btn-md btn-outline-dark" name="hide" type="submit" value="Hide Table" onclick="window.location="#graph";"/>
-                              </div><br /><br>';
-                   }
+                  
+                        if(isset($user_email) && is_null($user_email)==false){ ?>
+                           <div class="btn btn-group">
+                                <input class="btn btn-md btn-outline-dark" name="show" type="submit" value="Show Table" onclick="window.location='#graph';" id="show"/>
+                                <input class="btn btn-md btn-outline-dark" name="hide" type="submit" value="Hide Table" onclick="window.location='#graph';"  id="hide"/>
+                              </div><br /><br>
+                        <?php } 
                      if (isset($_POST['btnbmi']) && isset($_POST['bmi']) && !isset($user_email)) {
                         $Weight=$_POST['weight'];
                         $Height=$_POST['height'];
