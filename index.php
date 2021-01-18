@@ -547,6 +547,20 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                 $stmt -> bindParam(':fid',$id,PDO::PARAM_INT);
                                 $stmt->execute();
                                 $result=$stmt -> fetchAll(PDO::FETCH_ASSOC);
+				
+				 if($week_one < 18.5 || $week_two < 18.5 ||$week_three < 18.5 ||$week_four < 18.5 || $meanWEEK < 18.5){
+                               $colour = "bg-danger";
+                        }
+                            else if(($week_one > 18.5 || $week_two > 18.5 ||$week_three > 18.5 ||$week_four > 18.5 || $meanWEEK > 18.5) && ($week_one < 25 || $week_two < 25 ||$week_three < 25 ||$week_four < 25 || $meanWEEK < 25)){
+                               $colour = "bg-success";
+                        }
+                            else if($week_one > 25 || $week_two > 25 ||$week_three > 25 ||$week_four > 25 || $meanWEEK > 25){
+                              $colour = "bg-warning";
+                        } 
+                            else{
+                              $colour= "bg-light";
+                           }
+
                                 
                                 
                             echo "<table class='table table-bordered table-dark responsive'>";
