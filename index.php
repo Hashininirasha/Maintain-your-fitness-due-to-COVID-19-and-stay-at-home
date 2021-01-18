@@ -655,7 +655,7 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                     </div>
                                     <div class="text-col">
                                         <h3>Underweight</h3>
-                                        <p>.</p>
+                                        <p>You can determine whether you are underweight by using a Body Mass Index (BMI) calculator. If your BMI is less than 18.5, you are underweight. Your doctor also can help determine if you’re underweight based on your height, weight, what you eat, and your activity level.Eating junk food may result in weight gain. However, it will not satisfy the nutrition your body needs. Even if the fat, sugar, and salt in junk food doesn’t result as extra weight, it can still harm your body. For a healthy weight gain, the following tips can help :</p>
                                        
                                     </div>
                                 </div>
