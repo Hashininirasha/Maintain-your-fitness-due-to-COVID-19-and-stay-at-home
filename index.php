@@ -48,6 +48,8 @@ if(isset($_SESSION['user_email'])){
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 </head>
 
@@ -655,8 +657,19 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                     </div>
                                     <div class="text-col">
                                         <h3>Underweight</h3>
-                                        <p>You can determine whether you are underweight by using a Body Mass Index (BMI) calculator. If your BMI is less than 18.5, you are underweight. Your doctor also can help determine if you’re underweight based on your height, weight, what you eat, and your activity level.Eating junk food may result in weight gain. However, it will not satisfy the nutrition your body needs. Even if the fat, sugar, and salt in junk food doesn’t result as extra weight, it can still harm your body. For a healthy weight gain, the following tips can help :</p>
-                                       
+                                        <p>You can determine whether you are underweight by using a Body Mass Index (BMI) calculator. If your BMI is less than 18.5, you are underweight. Your doctor also can help determine if you’re underweight based on your height, weight, what you eat, and your activity level.Risks of being underweight 🙄 Being underweight can cause health problems, just as being overweight can. 😐</p><br>
+                                        <i class='fas fa-running' style='font-size:14px;color:blue'></i>Osteoporosis 👨‍🦳 </br>
+                                        <i class='fas fa-running' style='font-size:14px;color:blue'></i>Skin, hair, or teeth problems 💅 </br>
+                                        <i class='fas fa-running' style='font-size:14px;color:blue'></i>Getting sick frequently 🏥 </br>
+                                        <i class='fas fa-running' style='font-size:14px;color:blue'></i>Premature births 👶 </br>
+                                        <p>the following tips can help you:</p>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i> Add healthy calories 💪<br>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i> Go Nutrient dense 🥗<br>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i> Snaks away 🍟<br>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i> Eat mini meals 🍈<br>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i> Bulk Up 🧘‍♀️🧘‍♂️<br>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i> Drink milk 🥛<br>
+
                                     </div>
                                 </div>
                             </div>
