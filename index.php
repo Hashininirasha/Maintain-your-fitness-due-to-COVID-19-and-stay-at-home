@@ -476,18 +476,33 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                         
                         $BMI=$Weight/($Height/100*$Height/100);   
 
-                            if($BMI < 18.5){
-                               $status = "That you are Underweight.";
+                       for ($i=0; $i <5 ; $i++) { 
+                                $c[0]=   $week_one;
+                                $c[1]=   $week_two;
+                                $c[2]=   $week_three;
+                                $c[3]=   $week_four;
+                                $c[4]= $meanWEEK;
+
+
+
+                                if( $c[$i] > 0 && $c[$i] < 18.5){
+                                  $colour[$i] = "bg-danger";
                         }
-                           else if($BMI  > 18.5 && $BMI  < 25){
-                               $status = "That you are healthy.";
+                               else if($c[$i] > 18.5  && $c[$i] < 25){
+                                  $colour[$i] = "bg-success";
                         }
-                           else if($BMI  > 25){
-                              $status = "That you have overweight.";
+                              else if($c[$i] > 25){
+                                 $colour[$i] = "bg-warning";
                         } 
-                           else{
-                              $status = "This is impossible";
+
+                              else if ($c[$i]==0) {
+                                 $colour[$i]= "bg-dark";
+                              }
+                              else{
+                                 $colour[$i]= "bg-light";
                            }
+                         
+                            }
 
                         echo "<div class='card card-container'>
                                <div class='card-header inline-block'>
