@@ -8,6 +8,7 @@ if(isset($_SESSION['user_email'])){
 }
 
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -262,7 +263,7 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
     <!-- end special-menu -->
     <div id="menu" class="menu-main pad-top-100 pad-bottom-100">
         <div class="container">
-            <div class="row">
+            <div class="row" id="form">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                         <h2 class="block-title text-center">
@@ -302,14 +303,13 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                             
                             $bmi=$_POST['bmi'];
                             
-                            if ($_POST['week']>0 && $_POST['week']<5) {
+                           
                                
                               $i=$_POST['week'];
                               
-                             
-                            }
 
-                             $_SESSION['week']=$i;
+                              $_SESSION['week']=$i;
+                            
                             
                      
                             $w1="no";
@@ -406,7 +406,7 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                           
                    }
 
-                  if(isset($_POST['check']) && $_POST['check']=="" && isset($_SESSION['week']) && isset($_POST['btnbmi']))
+                  if(empty($_POST['check']) && isset($_SESSION['week']) && isset($_POST['btnbmi']) && $_SESSION['week']==1)
                              
                       {
                        $sql="SELECT * from check_bmi where user_id=:id";
@@ -421,16 +421,19 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                $weektwo= $row->week_two;
                                $weekthree= $row->week_three;
                                $weekfour= $row->week_four;
+                               // $meanWe=$row->mean;
                                
 
                                 
 
-                       if($weekone!="no" && $weektwo!="no" && $weekthree!="no" && $weekfour!="no" && $_SESSION['week']==1){
+                       if($weekone!="no" && $weektwo!="no" && $weekthree!="no" && $weekfour!="no" ){
+                        
                           $sql = "DELETE from check_bmi  where user_id=:id";
                     
                                      $stmt = $pdo->prepare($sql);
                                      $stmt -> bindParam(':id',$id,PDO::PARAM_INT);
                                      $stmt->execute(); 
+  
                  }
 
                        
@@ -439,93 +442,114 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
 
               
                   if(!isset($user_email)){
-                        echo "<h3 class='alert alert-secondary text-danger'>Note : Please Sign up for doing your BMI test...</h3></br>";
+                        echo "<h3 class='alert alert-secondary text-danger'>Note : Please Sign up for doing your BMI test weekly...</h3></br>";
                    }
 
                  
                    ?>
                 <div class="row">
-                    <div class="col-sm-6 order-sm-first">
+                    <div class="col-sm-6 col-12 order-sm-first">
 						<form method="post" class="border-right row" name="bmiForm"><h2>
                      <?php 
-                        if(isset($user_email) && is_null($user_email)==false){
-                        echo '<div class="custom-control custom-switch col-sm-12 ml-2 alert-light text-dark">
+                        if(isset($user_email) && is_null($user_email)==false){ ?>
+                          <div class="custom-control custom-switch col-sm-12 ml-2 alert-light text-dark">
                                  <input type="checkbox" class="custom-control-input" name="check" id="customSwitch2">
                                 <label class="custom-control-label" for="customSwitch2"> Are you new user ? </label>
                               </div><br/><br/>  
                     
-                              <label class="col-sm-6"> Enter your week No</label><input type="number" name="week" min="1" max="4" class="col-sm-6" placeholder="Between 1 - 4 weeks"><br/><br/>';
-                   }
+                              <label class="col-sm-6"> Enter your week No</label><input type="number" name="week" min="1" max="4" class="col-sm-6" placeholder="Between 1 - 4 weeks"><br/><br/>
+                  
+                  <?php }
                      ?>
                            
 						<label class="col-sm-6">Your Weight(kg)</label><input type="text" name="weight" class="col-sm-6"><br /><br/>
 						<label class="col-sm-6">Your Height(cm)</label><input type="text" name="height" class="col-sm-6"><br /><br/>
                         
-						<input class="btn btn-md btn-secondary ml-5" type="submit" name="btnbmi" value="Calculate BMI" onClick="calculateBmi()"><br><br>
+						
                          <?php 
-                  
                         if(isset($user_email) && is_null($user_email)==false){ ?>
+                            <input class="btn btn-md btn-secondary ml-5" type="submit" name="btnbmi" value="Calculate BMI" onClick="calculateBmi()"><br><br>
                            <div class="btn btn-group">
                                 <input class="btn btn-md btn-outline-dark" name="show" type="submit" value="Show Table" onclick="window.location='#graph';" id="show"/>
                                 <input class="btn btn-md btn-outline-dark" name="hide" type="submit" value="Hide Table" onclick="window.location='#graph';"  id="hide"/>
                               </div><br /><br>
                         <?php } 
-                     if (isset($_POST['btnbmi']) && isset($_POST['bmi']) && !isset($user_email)) {
-                        $Weight=$_POST['weight'];
-                        $Height=$_POST['height'];
+
+                       
+
+                     if (isset($_POST['btnbmiNew']) && isset($_POST['bmi']) && !isset($user_email)) {
+
+                        ?>
+          
+                        <input class="btn btn-md btn-dark ml-5" type="submit" name="btnbmiNew" value="Calculate BMI" onclick="window.location='#form';">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+                            Check Report
+                        </button><br><br>
                         
-                        $BMI=$Weight/($Height/100*$Height/100);   
+                        <?php
 
-                       for ($i=0; $i <5 ; $i++) { 
-                                $c[0]=   $week_one;
-                                $c[1]=   $week_two;
-                                $c[2]=   $week_three;
-                                $c[3]=   $week_four;
-                                $c[4]= $meanWEEK;
+                             if (empty($_POST['weight']) || empty($_POST['height'])) {
+                                 $error="Enter weight and height to calculate";
+                                 echo "<p class='alert alert-danger'>Error :".$error."<p>";
+                                 unset($error);
 
+                             }
+                            
+                             else{
+                                echo "<p class='alert alert-primary' id='success'>Data entered success!<p>";
 
+                                $Weight=$_POST['weight'];
+                                $Height=$_POST['height'];
+                        
+                                $BMI=$Weight/($Height/100*$Height/100);   
 
-                                if( $c[$i] > 0 && $c[$i] < 18.5){
-                                  $colour[$i] = "bg-danger";
+                                   if($BMI < 18.5){
+                                       $status = "That you are Underweight.";
+                                        $foot="bg-danger";
                         }
-                               else if($c[$i] > 18.5  && $c[$i] < 25){
-                                  $colour[$i] = "bg-success";
+                                  else if($BMI  > 18.5 && $BMI  < 25){
+                                        $status = "That you are healthy.";
+                                        $foot="bg-success";
                         }
-                              else if($c[$i] > 25){
-                                 $colour[$i] = "bg-warning";
+                                   else if($BMI  > 25){
+                                        $status = "That you have overweight.";
+                                        $foot="bg-warning";
                         } 
-
-                              else if ($c[$i]==0) {
-                                 $colour[$i]= "bg-dark";
-                              }
-                              else{
-                                 $colour[$i]= "bg-light";
+                                   else{
+                                       $status = "This is impossible";
+                                       $foot="bg-white";
                            }
-                         
-                            }
 
-                        echo "<div class='card card-container'>
-                               <div class='card-header inline-block'>
+                        echo "<div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'><div class='modal-dialog'><div class='modal-content'>
+                               <div class='modal-header ".$foot."'>
+                                  <h3 class='modal-title text-center text-light' id='exampleModalLabel'>BMI Report</h3>
+                                  <button type=button class='close' aria-label='Close' data-dismiss='modal' aria-label='close'>
+                                     <span aria-hidden='true'>&times;</span>
+                                  </button>
                                 
-                                <button type=button' class='close mr-0 mt-0' aria-label='Close'>
-                                  <span aria-hidden='true'>&times;</span>
-                                </button>
-                                <p class='text-center'>BMI Report</p>
                                 </div>
-                                <table class='bg-light table border-lg card-body table-active'>
-                                <tr><th>Your Weight    :</th><td>".$Weight."</td></tr>
-                                <tr><th>Your Height    :</th><td>".$Height."</td></tr>
-                                <tr><th>Your BMI Value :</th><td>".$BMI."</td></tr>
-                                <tr><th>Your Status    :</th><td>".$status."</td></tr>
-                             </table></div>";
+                                <div class=modal-body>
+                                    <table class='bg-light table border-lg table-active'>
+                                        <tr><th>Your Weight    :</th><td>".$Weight."</td></tr>
+                                        <tr><th>Your Height    :</th><td>".$Height."</td></tr>
+                                        <tr><th>Your BMI Value :</th><td>".$BMI."</td></tr>
+                                        <tr><th>Your Status    :</th><td>".$status."</td></tr>
+                                    </table>
+                                </div>
+                                <div class='modal-footer ".$foot."'></div>
+                                </div></div></div>";
+                             }
+                         } 
+                        
+                        
                                  
                       
 
-                                         }
+                                         
 
 
                      ?>
-                        
                         <div class="d-none">
 						  <input type="text" name="bmi" size="10">
 						  <input type="text" name="meaning" size="25">
@@ -553,30 +577,60 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                $week_four= $row->week_four;
                             
                         $Mean=(floatval($week_one) +floatval($week_two) +floatval($week_three)+floatval($week_four))/$_SESSION['week'];
+                        
                                $meanWEEK= strval($Mean);
-                                
-
-                              $sql = "UPDATE check_bmi set mean=:mean where user_id=:fid";
+                    
+                                     
+                              $sql = "UPDATE check_bmi set mean=:meanv where user_id=:fid";
                                 $stmt = $pdo->prepare($sql);
-                                $stmt -> bindParam(':mean',$meanWEEK,PDO::PARAM_STR);
+                                $stmt -> bindParam(':meanv',$meanWEEK,PDO::PARAM_STR);
                                 $stmt -> bindParam(':fid',$id,PDO::PARAM_INT);
                                 $stmt->execute();
-                                $result=$stmt -> fetchAll(PDO::FETCH_ASSOC);
-				
-				 if($week_one < 18.5 || $week_two < 18.5 ||$week_three < 18.5 ||$week_four < 18.5 || $meanWEEK < 18.5){
-                               $colour = "bg-danger";
-                        }
-                            else if(($week_one > 18.5 || $week_two > 18.5 ||$week_three > 18.5 ||$week_four > 18.5 || $meanWEEK > 18.5) && ($week_one < 25 || $week_two < 25 ||$week_three < 25 ||$week_four < 25 || $meanWEEK < 25)){
-                               $colour = "bg-success";
-                        }
-                            else if($week_one > 25 || $week_two > 25 ||$week_three > 25 ||$week_four > 25 || $meanWEEK > 25){
-                              $colour = "bg-warning";
-                        } 
-                            else{
-                              $colour= "bg-light";
-                           }
+                               
+                                $sql="SELECT * from check_bmi where user_id=:fid";
+                                 $stmt=$pdo ->prepare($sql);
+                                $stmt -> bindParam(':fid',$id,PDO::PARAM_INT);
+                                $stmt->execute();
+                                $result=$stmt -> fetchAll(PDO::FETCH_OBJ);
+                               
+                               foreach ($result as $row) {
+                                    $meanW=$row->mean;
+                                   
+                               
+                     
 
+
+                            for ($j=0; $j <5 ; $j++) { 
+                                $c[0]=   $week_one;
+                                $c[1]=   $week_two;
+                                $c[2]=   $week_three;
+                                $c[3]=   $week_four;
+                                $c[4]= $meanW;
+
+
+
+                                if( $c[$j] > 0 && $c[$j] < 18.5){
+                                  $colour[$j] = "bg-danger";
+                        }
+                               else if($c[$j] > 18.5  && $c[$j] < 25){
+                                  $colour[$j] = "bg-success";
+                        }
+                              else if($c[$j] > 25){
+                                 $colour[$j] = "bg-warning";
+                        } 
+
+                              else if ($c[$j]==0) {
+                                 $colour[$j]= "bg-dark";
+                              }
+                              else{
+                                 $colour[$i]= "bg-light";
+                           }
+                         
+                            }
                                 
+                            
+
+
                                 
                             echo "<table class='table table-bordered table-dark responsive'>";
                             echo "<tr>";
@@ -590,38 +644,40 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                             echo "<tr>";
                             echo "<th>1st Week</th>";
                             echo "<th>".$row->week_one."</th>";
-                            echo "<th class=".$colour."></th>";
+                            echo "<th class=".$colour[0]."></th>";
                             echo "</tr>";
                             echo "<tr>";
                             echo "<th>2nd Week</th>";
                             echo "<th>".$row->week_two."</th>";
-                            echo "<th class=".$colour."></th>";
+                            echo "<th class=".$colour[1]."></th>";
                             echo "</tr>";
                             echo "<tr>";
                             echo "<th>3rd Week</th>";
                             echo "<th>".$row->week_three."</th>";
-                            echo "<th class=".$colour."></th>";
+                            echo "<th class=".$colour[2]."></th>";
                             echo "</tr>";
                             echo "<tr>";
                             echo "<th>4th Week</th>";
                             echo "<th>".$row->week_four."</th>";
-                            echo "<th class=".$colour."></th>";
+                            echo "<th class=".$colour[3]."></th>";
                             echo "</tr>";
                             echo "<tr>";
                             echo "<th>Mean</th>";
-                            echo "<th>".$meanWEEK."</th>";
-                            echo "<th class=".$colour."></th>";
+                            echo "<th>".$meanW."</th>";
+                            echo "<th class=".$colour[4]."></th>";
                             echo "</tr>";
                             echo "</tbody>";
                             $cnt++;
                             echo "</table>";
 
+}
    
                     }
-
+                       
                   
                         }
-                     echo "<hr><br><table class='row justify-content-center'><tr>
+
+                        echo "<hr><br><table class='row justify-content-center'><tr>
                                           <td class='col-sm-1 bg-danger'></td>
                                           <td class='col-sm-2'>Underweight</td>
                                           <td class='col-sm-1'>|</td>
@@ -632,7 +688,6 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                           <td class='col-sm-2'>Overweight</td>
                                           </tr></table><br><br>";
 
-			
                     }
 
                    
@@ -641,10 +696,12 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                       
                       
                     }
- 
+                      
                     
 
                         ?>
+
+
                         </div>
                         </div>
 					</div>
@@ -936,6 +993,7 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
     <script src="js/bootstrap.min.js"></script>
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
