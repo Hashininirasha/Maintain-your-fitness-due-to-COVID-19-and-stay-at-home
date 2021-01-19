@@ -183,31 +183,31 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                     <div class="special-box">
                         <div id="owl-demo">
                             <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
+                                <a href="https://www.healthline.com/nutrition/sonoma-diet-review-does-it-work-for-weight-loss" class="item-hover">
                                     <div class="item-info">
                                         <div class="headline">
-                                            SALMON STEAK
+                                            SONOMA DIET 
                                             <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
+                                            <div class="dit-line">The Sonoma Diet is a Mediterranean-inspired eating pattern designed to promote weight loss and improve overall health..</div>
                                         </div>
                                     </div>
                                 </a>
-                                <div class="item-img">
-                                    <img src="images/special-menu-1.jpg" alt="sp-menu">
+                                <div class="item-img" >
+                                    <img src="images/spfood1.jpg" alt="sp-menu" style="width: 332x; height: 200px;">
                                 </div>
                             </div>
                             <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
+                                <a href="https://healthysubstitute.com/protein-shake-for-weight-gain" class="item-hover">
                                     <div class="item-info">
                                         <div class="headline">
-                                            ITALIAN PIZZA
+                                            PROTEIN SHAKE
                                             <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
+                                            <div class="dit-line">The Best Protein Shake Recipe for Weight Gain. then you understand the struggle of growing up really skinny If you’re still having a hard time gaining weight.</div>
                                         </div>
                                     </div>
                                 </a>
                                 <div class="item-img">
-                                    <img src="images/special-menu-2.jpg" alt="sp-menu">
+                                    <img src="images/spfood3.jpg" alt="sp-menu" style="width: 332x; height: 200px;">
                                 </div>
                             </div>
                             <div class="item item-type-zoom">
