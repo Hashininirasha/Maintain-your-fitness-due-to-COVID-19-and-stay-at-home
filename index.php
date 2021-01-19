@@ -753,8 +753,15 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                     </div>
                                     <div class="text-col">
                                         <h3>Healthy</h3>
-                                        <p> .</p>
-                                        
+                                        <p>You can determine whether you are Healty by using a Body Mass Index (BMI) calculator. If your BMI is 18.5 to 24.9, you are Healty. Your doctor also can help to maintain your healty level 💪🤸‍♀️ based on your height, weight, what you eat, and your activity level 🚴‍♀️</p><br>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i>Eat a variety of nutrient rich foods 🥗<br>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i>Avoid too much caffeine ☕<br>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i>Be active 🏃‍♀️💃<br>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i>Relax 💆‍♀️🍁<br>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i>Get involved and meet people in a positive environment 🌸🍃<br>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i>Don’t drink sugar calories 🥨🍹🍰<br>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i>Get enough sleep 🧛‍♀️<br>
+                                        <p>It is important that we pay attention to each part of the body and the body as a whole to maintain proper fitness. Since every part of the body works in conjunction with every other part, it is critical that all parts are healthy and maintained by receiving what they need.</p>
                                     </div>
                                 </div>
                             </div>
@@ -766,8 +773,18 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                     </div>
                                     <div class="text-col">
                                         <h3>Overweight</h3>
-                                        <p></p>
-                                       
+                                        <p>You can determine whether you are Overweight by using a Body Mass Index (BMI) calculator. If your BMI is Over than 24.9, you are Overweight. Your doctor also can help determine if you’re Overweight based on your height, weight, what you eat, and your activity level.Risks of being Overweight 🙄 Being Overweight can cause health problems, just as being Overweight can. 😐</p><br>
+                                        <i class='fas fa-running' style='font-size:14px;color:blue'></i>All-causes of death (mortality) 😯 </br>
+                                        <i class='fas fa-running' style='font-size:14px;color:blue'></i>Sleep apnea and breathing problems 😴😷 </br>
+                                        <i class='fas fa-running' style='font-size:14px;color:blue'></i>High blood pressure (hypertension) 💔 </br>
+                                        <i class='fas fa-running' style='font-size:14px;color:blue'></i>Gallbladder disease 😫 </br>
+                                        <p>the following tips can help you:</p>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i> Add Resistance Exercises 🏃‍♂️🏊‍♂️<br>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i> Add Protein to Your Diet🥗<br>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i> Avoid Processed Foods 🍔🍕🍟<br>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i> Count Calories Once in a While 🙌<br>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i> Avoid Liquid Calories 🍻<br>
+                                        <i class='fas fa-heartbeat' style='font-size:14px;color:red'></i> Drink More Water 🥛<br>
                                     </div>
                                 </div>
                             </div>
