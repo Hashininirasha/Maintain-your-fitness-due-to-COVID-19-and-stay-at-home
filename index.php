@@ -540,10 +540,10 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                 </div>
                                 <div class=modal-body>
                                     <table class='bg-light table border-lg table-active'>
-                                        <tr><th>Your Weight    :</th><td>".$Weight."</td></tr>
-                                        <tr><th>Your Height    :</th><td>".$Height."</td></tr>
-                                        <tr><th>Your BMI Value :</th><td>".$BMI."</td></tr>
-                                        <tr><th>Your Status    :</th><td>".$status."</td></tr>
+                                        <tr><th>Your Weight</th><th>:</th><td>".$Weight."</td></tr>
+                                        <tr><th>Your Height</th><th>:</th><td>".$Height."</td></tr>
+                                        <tr><th>Your BMI Value</th><th>:</th><td>".$BMI."</td></tr>
+                                        <tr><th>Your Status</th><th>:</th><td>".$status."</td></tr>
                                     </table>
                                 </div>
                                 <div class='modal-footer ".$foot."'></div>
