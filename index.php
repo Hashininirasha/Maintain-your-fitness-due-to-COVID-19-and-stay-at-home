@@ -474,14 +474,19 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                 <input class="btn btn-md btn-outline-dark" name="hide" type="submit" value="Hide Table" onclick="window.location='#graph';"  id="hide"/>
                               </div><br /><br>
                         <?php } 
+                       if (!isset($user_email)) {?>
+                           <input class="btn btn-md btn-dark ml-5" type="submit" name="btnbmiNew" value="Calculate BMI" onclick="window.location='#form';">
 
+                       
+                       <?php
+                     }
                        
 
                      if (isset($_POST['btnbmiNew']) && isset($_POST['bmi']) && !isset($user_email)) {
 
                         ?>
           
-                        <input class="btn btn-md btn-dark ml-5" type="submit" name="btnbmiNew" value="Calculate BMI" onclick="window.location='#form';">
+                        
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
                             Check Report
@@ -490,9 +495,10 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                         <?php
 
                              if (empty($_POST['weight']) || empty($_POST['height'])) {
-                                 $error="Enter weight and height to calculate";
-                                 echo "<p class='alert alert-danger'>Error :".$error."<p>";
-                                 unset($error);
+                                 
+                                 $Error="Enter weight and height to calculate";
+                                 echo "<p class='alert alert-danger'>Error :".$Error."<p>";
+                                 
 
                              }
                             
@@ -502,7 +508,8 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                 $Weight=$_POST['weight'];
                                 $Height=$_POST['height'];
                         
-                                $BMI=$Weight/($Height/100*$Height/100);   
+                                $BMI=round($Weight/($Height/100*$Height/100),2);   
+
 
                                    if($BMI < 18.5){
                                        $status = "That you are Underweight.";
@@ -542,12 +549,7 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                              }
                          } 
                         
-                        
-                                 
-                      
-
-                                         
-
+      
 
                      ?>
                         <div class="d-none">
