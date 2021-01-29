@@ -211,17 +211,17 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                 </div>
                             </div>
                             <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
+                                <a href="https://pinchofyum.com/lemon-chicken-soup-with-orzo" class="item-hover">
                                     <div class="item-info">
                                         <div class="headline">
-                                            VEG. ROLL
+                                            Lemon Chicken Soup
                                             <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
+                                            <div class="dit-line">This Lemon Chicken Soup becomes your new Chicken Noodle.What a gorgeous, comforting, tasty soup! Love it! Will be adding dinner repertoire</div>
                                         </div>
                                     </div>
                                 </a>
                                 <div class="item-img">
-                                    <img src="images/special-menu-3.jpg" alt="sp-menu">
+                                    <img src="images/spfood4.jpg" alt="sp-menu" style="width: 332x; height: 200px;">
                                 </div>
                             </div>
                             <div class="item item-type-zoom">
