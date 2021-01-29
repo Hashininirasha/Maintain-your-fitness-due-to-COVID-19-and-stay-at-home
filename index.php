@@ -225,7 +225,7 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                 </div>
                             </div>
                             <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
+                                <a href="https://www.eatingwell.com/recipe/274166/baked-banana-nut-oatmeal-cups/" class="item-hover">
                                     <div class="item-info">
                                         <div class="headline">
                                             Baked Banana-Nut Oatmeal Cups
@@ -239,17 +239,17 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                 </div>
                             </div>
                             <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
+                                <a href="https://www.tarladalal.com/calories-for-egg-noodles-spicy-maggi-egg-noodles-14311" class="item-hover">
                                     <div class="item-info">
                                         <div class="headline">
-                                            VEG. ROLL
+                                            Egg Noodles
                                             <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
+                                            <div class="dit-line">Egg Noodles within minites by simply cooking noodles with beaten eggs and vegitables.A smart way of noodles lovers with eggs and vegitables </div>
                                         </div>
                                     </div>
                                 </a>
                                 <div class="item-img">
-                                    <img src="images/special-menu-2.jpg" alt="sp-menu">
+                                    <img src="images/spfood6.jpg" alt="sp-menu" style="width: 332x; height: 200px;">
                                 </div>
                             </div>
                         </div>
