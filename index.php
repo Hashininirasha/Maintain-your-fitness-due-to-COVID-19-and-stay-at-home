@@ -818,10 +818,21 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                         <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                             <div class="col-md-6 col-sm-6">
                                 <div class="blog-block">
+                                <h2 class="text-danger" align="center">Digital Nutrition Consultations </h2>
+                                <p>For those unable to travel to our clinics, or who are isolating due to COVID-19 but are in need of treatment or advice, we are now offering video and phone consultations, supported with follow up meal and nutrition programmes. This consists of:</p>
+                                <i class="fas fa-walking"></i>A 30-minute virtual appointment with a registered Dietitian or Nutritionist
+
+                                <i class="fas fa-walking"></i>A full assessment and range of tests (you may need a weighing scales and a tape measure)
+
+                                <i class="fas fa-walking"></i>Menu plans and treatment plans, where feasible, under the guidance of your Dietitian/Nutritionist
+
+                                <i class="fas fa-walking"></i>Clinical advice on improving your condition
+
+                                <i class="fas fa-walking"></i>Appropriate relevant articles/blogs on your condition to follow up post-appointment</p>
                                     <div class="blog-img-box">
-                                        <img src= alt="" />
-                                        <div class="overlay">
-                                            <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                    
+                            <div class="overlay">
+                                            
                                         </div>
                                     </div>
                                     <div class="blog-dit">
@@ -838,6 +849,7 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                                         <img src="" alt="" />
                                         <div class="overlay">
                                             <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+
                                         </div>
                                     </div>
                                     <div class="blog-dit">
