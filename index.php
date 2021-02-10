@@ -811,7 +811,7 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                             <div class="col-md-6 col-sm-6">
                                 <div class="blog-block">
                                     <div class="blog-img-box">
-                                    <h3>The Profligate Distribution of Milk</h3>
+                                    <h5 class="block-title text-center">The Profligate Distribution of Milk</h3>
                                         <img src="images/cow.jpg" alt="" />
                                         <div class="overlay">
                                             <a href="https://gomiebear.medium.com/the-profligate-of-milk-bc56cce3e4a1"><i class="fa fa-link" aria-hidden="true"></i></a>
@@ -830,7 +830,7 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                             <div class="col-md-6 col-sm-6">
                                 <div class="blog-block">
                                     <div class="blog-img-box">
-                                    <h3>10 things I wish I knew before buying an air fryer</h3>
+                                    <h5 class="block-title text-center">10 things I wish before buying an air fryer</h3>
                                         <img src="images/air.jpeg" alt="" />
                                         <div class="overlay">
                                             <a href="https://medium.com/insider/10-things-i-wish-i-knew-before-buying-an-air-fryer-9db23ef5a279"><i class="fa fa-link" aria-hidden="true"></i></a>
@@ -847,7 +847,7 @@ Even though the appliance changed my cooking lifestyle for the better, there wer
                             <div class="col-md-6 col-sm-6">
                                 <div class="blog-block">
                                     <div class="blog-img-box">
-                                    <h3>Hysterical</h3>
+                                    <h5 class="block-title text-center">Hysterical</h3>
                                         <img src="images/gap.jpeg" alt="" />
                                         <div class="overlay">
                                             <a href="https://devonclarebanfield-1221.medium.com/hysterical-9421ed76a027"><i class="fa fa-link" aria-hidden="true"></i></a>
@@ -862,7 +862,7 @@ Even though the appliance changed my cooking lifestyle for the better, there wer
                             <div class="col-md-6 col-sm-6">
                                 <div class="blog-block">
                                     <div class="blog-img-box">
-                                    <h3>How to cut your fitness age by 30 years?</h3>
+                                    <h5 class="block-title text-center">Fitness age in 30</h3>
                                         <img src="images/time.png" alt="" />
                                         <div class="overlay">
                                             <a href="https://dmitri-konash.medium.com/how-to-cut-your-fitness-age-by-30-years-328f29e2ffa6"><i class="fa fa-link" aria-hidden="true"></i></a>
