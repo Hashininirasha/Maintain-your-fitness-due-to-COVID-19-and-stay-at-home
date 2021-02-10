@@ -811,14 +811,17 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                             <div class="col-md-6 col-sm-6">
                                 <div class="blog-block">
                                     <div class="blog-img-box">
-                                        <img src= alt="" />
+                                    <h3>The Profligate Distribution of Milk</h3>
+                                        <img src="images/cow.jpg" alt="" />
                                         <div class="overlay">
-                                            <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                            <a href="https://gomiebear.medium.com/the-profligate-of-milk-bc56cce3e4a1"><i class="fa fa-link" aria-hidden="true"></i></a>
                                         </div>
+
                                     </div>
-                                    <div class="blog-dit">
-                                        
-                                    </div>
+
+                                  
+                                        <p>In this time and age, there is a limit of sources within the United States Of America, and possibly worldwide. An article published on March 18, 2014 by Paula Marantz Cohen named “The Milk of Human (Un)kindness” expressed the concerns of public school systems wasting milk that is provided to students by a private catering company. In one of the nation’s poorest cities (Camden, New Jersey), students receive free breakfast and are routinely served milk — whether they want it or not. In the article, it states “Every morning, representatives from the company deliver the meals to her classroom.</p>.
+                                    
                                 </div>
                             </div>
                             <!-- end col -->
@@ -827,14 +830,15 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
                             <div class="col-md-6 col-sm-6">
                                 <div class="blog-block">
                                     <div class="blog-img-box">
-                                        <img src="" alt="" />
+                                    <h3>10 things I wish I knew before buying an air fryer</h3>
+                                        <img src="images/air.jpeg" alt="" />
                                         <div class="overlay">
-                                            <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                            <a href="https://medium.com/insider/10-things-i-wish-i-knew-before-buying-an-air-fryer-9db23ef5a279"><i class="fa fa-link" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
-                                    <div class="blog-dit">
-                                       
-                                    </div>
+                                    <p>Throughout 2020, I’ve heard many friends and people all over social media raving about their air fryers.
+When the holidays came around, I decided to finally find out what all the fuss was about. Instantly, I understood why so many people have fallen in love with the kitchen appliance. The air fryer became a game-changer in my kitchen, allowing me to cook dinner in minutes and fry chicken, vegetables, and other foods without submerging them in unhealthy oil.
+Even though the appliance changed my cooking lifestyle for the better, there were still a few things about the air fryer that surprised me and that I wish I knew before I made the purchase.</p>
                                 </div>
                             </div>
                             <!-- end col -->
