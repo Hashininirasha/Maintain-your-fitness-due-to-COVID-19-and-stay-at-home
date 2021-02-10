@@ -14,7 +14,8 @@ if(isset($_SESSION['user_email'])){
 <html lang="en">
 
 <head>
-
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,11 +33,13 @@ if(isset($_SESSION['user_email'])){
     <link rel="shortcut icon" type="image/x-icon" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
+    
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+
     <!-- Site CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/check_button_style.scss">
+    
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css">
     <!-- color -->
@@ -49,56 +52,43 @@ if(isset($_SESSION['user_email'])){
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 </head>
 
 <body>
-    <div id="loader">
-        <div id="status"></div>
-    </div>
-    <div id="site-header">
-        <header id="header" class="header-block-top">
-            <div class="container">
-                <div class="row">
-                    <div class="main-menu">
-                        <!-- navbar -->
-                        <nav class="navbar navbar-default" id="mainNav">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                               
-                            </div>
-                            <div id="navbar" class="navbar-collapse collapse">
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li class="active"><a href="#banner">Home</a></li>
-                                    <li><a href="#about">About Web</a></li>
-                                    <li><a href="#menu">Calculate BMI</a></li>
-                                   
-                                    
-                                    <li><a href="#blog">Blog</a></li>
-                                   
-                                    
-                                    <li><a href="#footer">Contact us</a></li>
-                                </ul>
-                            </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#banner">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#menu">Calculate BMI</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#blog">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#footer">Contact us</a>
+      </li>
+    
+  </div>
+</nav>
                             <!-- end nav-collapse -->
-                        </nav>
-                        <!-- end navbar -->
-                    </div>
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container-fluid -->
-        </header>
-        <!-- end header -->
-    </div>
-	<!-- end site-header -->
+                       
 	
     <div id="banner" class="banner full-screen-mode parallax">
         <div class="container pr">
@@ -812,79 +802,82 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <h2 class="block-title text-center">
-                    Our Blog    
+                    Our Blog   
                 </h2>
                 
-                        <table>
-                          
-                            <tr>
-
-                                <th>
-                                   
+                        </h2>
+                    <div class="blog-box clearfix">
                         <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                             <div class="col-md-6 col-sm-6">
                                 <div class="blog-block">
+                                    <div class="blog-img-box">
+                                    <h3>The Profligate Distribution of Milk</h3>
+                                        <img src="images/cow.jpg" alt="" />
+                                        <div class="overlay">
+                                            <a href="https://gomiebear.medium.com/the-profligate-of-milk-bc56cce3e4a1"><i class="fa fa-link" aria-hidden="true"></i></a>
+                                        </div>
+
+                                    </div>
+
+                                  
+                                        <p>In this time and age, there is a limit of sources within the United States Of America, and possibly worldwide. An article published on March 18, 2014 by Paula Marantz Cohen named “The Milk of Human (Un)kindness” expressed the concerns of public school systems wasting milk that is provided to students by a private catering company. In one of the nation’s poorest cities (Camden, New Jersey), students receive free breakfast and are routinely served milk — whether they want it or not. In the article, it states “Every morning, representatives from the company deliver the meals to her classroom.</p>.
                                     
-                                   
-                                        <h3>Digital Nutrition Consultations</h3>
-                                         
-                                        <p> For those unable to travel to our clinics, or who are isolating due to COVID-19 but are in need of treatment or advice, we are now offering video and phone consultations, supported with follow up meal and nutrition programmes. This consists of:</p>
-                                        <i class="fas fa-walking"></i>A 30-minute virtual appointment with a registered Dietitian or Nutritionist
-
-                                <i class="fas fa-walking"></i>A full assessment and range of tests (you may need a weighing scales and a tape measure)
-
-                                <i class="fas fa-walking"></i>Menu plans and treatment plans, where feasible, under the guidance of your Dietitian/Nutritionist
-
-                                <i class="fas fa-walking"></i>Clinical advice on improving your condition
-
-                                <i class="fas fa-walking"></i>Appropriate relevant articles/blogs on your condition to follow up post-appointment</p>
-                            
-                                
-                            </div>
-
-                                </th>
-
-                            
-                            <!-- end first col -->
-
-                                 
-
-                                <th>
-                                   <div class="blog-box clearfix">
-                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="blog-block">
-                                    
-                                   
-                                        <h3>Digital Nutrition Consultations</h3>
-                                         
-                                        <p> For those unable to travel to our clinics, or who are isolating due to COVID-19 but are in need of treatment or advice, we are now offering video and phone consultations, supported with follow up meal and nutrition programmes. This consists of:</p>
-                                        <i class="fas fa-walking"></i>A 30-minute virtual appointment with a registered Dietitian or Nutritionist
-
-                                <i class="fas fa-walking"></i>A full assessment and range of tests (you may need a weighing scales and a tape measure)
-
-                                <i class="fas fa-walking"></i>Menu plans and treatment plans, where feasible, under the guidance of your Dietitian/Nutritionist
-
-                                <i class="fas fa-walking"></i>Clinical advice on improving your condition
-
-                                <i class="fas fa-walking"></i>Appropriate relevant articles/blogs on your condition to follow up post-appointment</p>
-                            
                                 </div>
                             </div>
-
-                                </th>
-
-                            </tr>
-
-                          </table>
+                            <!-- end col -->
+                        </div>
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="blog-block">
+                                    <div class="blog-img-box">
+                                    <h3>10 things I wish I knew before buying an air fryer</h3>
+                                        <img src="images/air.jpeg" alt="" />
+                                        <div class="overlay">
+                                            <a href="https://medium.com/insider/10-things-i-wish-i-knew-before-buying-an-air-fryer-9db23ef5a279"><i class="fa fa-link" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <p>Throughout 2020, I’ve heard many friends and people all over social media raving about their air fryers.
+When the holidays came around, I decided to finally find out what all the fuss was about. Instantly, I understood why so many people have fallen in love with the kitchen appliance. The air fryer became a game-changer in my kitchen, allowing me to cook dinner in minutes and fry chicken, vegetables, and other foods without submerging them in unhealthy oil.
+Even though the appliance changed my cooking lifestyle for the better, there were still a few things about the air fryer that surprised me and that I wish I knew before I made the purchase.</p>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="blog-block">
+                                    <div class="blog-img-box">
+                                    <h3>Hysterical</h3>
+                                        <img src="images/gap.jpeg" alt="" />
+                                        <div class="overlay">
+                                            <a href="https://devonclarebanfield-1221.medium.com/hysterical-9421ed76a027"><i class="fa fa-link" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <p>Where there is an abundance of suffering, there is also abundant room for healing. Feminists and other scholars are now investigating the areas in history when women have suffered the greatest. The pay gap is frequently discussed in political and academic circles, as well as in the media. Women’s roles in society, from mothering to domestic duties, have been undervalued, and in turn underpaid, for all of human history. But what about healthcare? A lack of funding, historical sexism, and minimal research means that physicians do not always uphold the same standard of care for their male and female patients. This is known as the health gap.</p>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="blog-block">
+                                    <div class="blog-img-box">
+                                    <h3>How to cut your fitness age by 30 years?</h3>
+                                        <img src="images/time.png" alt="" />
+                                        <div class="overlay">
+                                            <a href="https://dmitri-konash.medium.com/how-to-cut-your-fitness-age-by-30-years-328f29e2ffa6"><i class="fa fa-link" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <p>MyGarmin app made me a late New Year present on January 12th this year. It is a screenshot from Garmin app at the top of this article. I admit, it made me very happy! Earlier I made a post on my website (see profile) which explains why VO2Max, a number which shows how effectively your body processes oxygen, is such an important health indicator. In short: higher VO2Max translates in higher probability of living longer. The abovementioned post explains how scientists arrived at this conclusion and you if you know your number you can compare it to average population tables in my article. </p>
+                                </div>
+                            </div>
                             <!-- end col -->
                         </div>
                     </div>
-                    </table>
                     <!-- end blog-box -->
 
                     <div class="blog-btn-v">
-                        <a class="hvr-underline-from-center" href="#">View the Blog</a>
+                        <a class="hvr-underline-from-center" href="https://medium.com/">View the Blog</a>
                     </div>
 
                 </div>
