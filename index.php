@@ -847,14 +847,13 @@ Even though the appliance changed my cooking lifestyle for the better, there wer
                             <div class="col-md-6 col-sm-6">
                                 <div class="blog-block">
                                     <div class="blog-img-box">
-                                        <img src="" alt="" />
+                                    <h3>Hysterical</h3>
+                                        <img src="images/gap.jpeg" alt="" />
                                         <div class="overlay">
-                                            <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                            <a href="https://devonclarebanfield-1221.medium.com/hysterical-9421ed76a027"><i class="fa fa-link" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
-                                    <div class="blog-dit">
-                                      
-                                    </div>
+                                    <p>Where there is an abundance of suffering, there is also abundant room for healing. Feminists and other scholars are now investigating the areas in history when women have suffered the greatest. The pay gap is frequently discussed in political and academic circles, as well as in the media. Women’s roles in society, from mothering to domestic duties, have been undervalued, and in turn underpaid, for all of human history. But what about healthcare? A lack of funding, historical sexism, and minimal research means that physicians do not always uphold the same standard of care for their male and female patients. This is known as the health gap.</p>
                                 </div>
                             </div>
                             <!-- end col -->
