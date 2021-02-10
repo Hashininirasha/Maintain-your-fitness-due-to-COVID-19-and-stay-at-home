@@ -14,7 +14,8 @@ if(isset($_SESSION['user_email'])){
 <html lang="en">
 
 <head>
-
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,11 +33,13 @@ if(isset($_SESSION['user_email'])){
     <link rel="shortcut icon" type="image/x-icon" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
+    
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+
     <!-- Site CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/check_button_style.scss">
+    
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css">
     <!-- color -->
@@ -49,56 +52,54 @@ if(isset($_SESSION['user_email'])){
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 </head>
 
 <body>
-    <div id="loader">
-        <div id="status"></div>
-    </div>
-    <div id="site-header">
-        <header id="header" class="header-block-top">
-            <div class="container">
-                <div class="row">
-                    <div class="main-menu">
-                        <!-- navbar -->
-                        <nav class="navbar navbar-default" id="mainNav">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                               
-                            </div>
-                            <div id="navbar" class="navbar-collapse collapse">
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li class="active"><a href="#banner">Home</a></li>
-                                    <li><a href="#about">About Web</a></li>
-                                    <li><a href="#menu">Calculate BMI</a></li>
-                                   
-                                    
-                                    <li><a href="#blog">Blog</a></li>
-                                   
-                                    
-                                    <li><a href="#footer">Contact us</a></li>
-                                </ul>
-                            </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
                             <!-- end nav-collapse -->
-                        </nav>
-                        <!-- end navbar -->
-                    </div>
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container-fluid -->
-        </header>
-        <!-- end header -->
-    </div>
-	<!-- end site-header -->
+                       
 	
     <div id="banner" class="banner full-screen-mode parallax">
         <div class="container pr">
@@ -812,75 +813,76 @@ People can't go out to meet his or her Doctor to get nutritional advice. Sometim
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <h2 class="block-title text-center">
-                    Our Blog    
+                    Our Blog   
                 </h2>
                 
-                        <table>
-                          
-                            <tr>
-
-                                <th>
-                                   
+                        </h2>
+                    <div class="blog-box clearfix">
                         <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                             <div class="col-md-6 col-sm-6">
                                 <div class="blog-block">
-                                    
-                                   
-                                        <h3>Digital Nutrition Consultations</h3>
-                                         
-                                        <p> For those unable to travel to our clinics, or who are isolating due to COVID-19 but are in need of treatment or advice, we are now offering video and phone consultations, supported with follow up meal and nutrition programmes. This consists of:</p>
-                                        <i class="fas fa-walking"></i>A 30-minute virtual appointment with a registered Dietitian or Nutritionist
-
-                                <i class="fas fa-walking"></i>A full assessment and range of tests (you may need a weighing scales and a tape measure)
-
-                                <i class="fas fa-walking"></i>Menu plans and treatment plans, where feasible, under the guidance of your Dietitian/Nutritionist
-
-                                <i class="fas fa-walking"></i>Clinical advice on improving your condition
-
-                                <i class="fas fa-walking"></i>Appropriate relevant articles/blogs on your condition to follow up post-appointment</p>
-                            
-                                
-                            </div>
-
-                                </th>
-
-                            
-                            <!-- end first col -->
-
-                                 
-
-                                <th>
-                                   <div class="blog-box clearfix">
-                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="blog-block">
-                                    
-                                   
-                                        <h3>Digital Nutrition Consultations</h3>
-                                         
-                                        <p> For those unable to travel to our clinics, or who are isolating due to COVID-19 but are in need of treatment or advice, we are now offering video and phone consultations, supported with follow up meal and nutrition programmes. This consists of:</p>
-                                        <i class="fas fa-walking"></i>A 30-minute virtual appointment with a registered Dietitian or Nutritionist
-
-                                <i class="fas fa-walking"></i>A full assessment and range of tests (you may need a weighing scales and a tape measure)
-
-                                <i class="fas fa-walking"></i>Menu plans and treatment plans, where feasible, under the guidance of your Dietitian/Nutritionist
-
-                                <i class="fas fa-walking"></i>Clinical advice on improving your condition
-
-                                <i class="fas fa-walking"></i>Appropriate relevant articles/blogs on your condition to follow up post-appointment</p>
-                            
+                                    <div class="blog-img-box">
+                                        <img src= alt="" />
+                                        <div class="overlay">
+                                            <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="blog-dit">
+                                        
+                                    </div>
                                 </div>
                             </div>
-
-                                </th>
-
-                            </tr>
-
-                          </table>
+                            <!-- end col -->
+                        </div>
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="blog-block">
+                                    <div class="blog-img-box">
+                                        <img src="" alt="" />
+                                        <div class="overlay">
+                                            <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="blog-dit">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="blog-block">
+                                    <div class="blog-img-box">
+                                        <img src="" alt="" />
+                                        <div class="overlay">
+                                            <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="blog-dit">
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="blog-block">
+                                    <div class="blog-img-box">
+                                        <img src= alt="" />
+                                        <div class="overlay">
+                                            <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="blog-dit">
+                                        
+                                    </div>
+                                </div>
+                            </div>
                             <!-- end col -->
                         </div>
                     </div>
-                    </table>
                     <!-- end blog-box -->
 
                     <div class="blog-btn-v">
