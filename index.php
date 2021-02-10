@@ -847,7 +847,7 @@ Even though the appliance changed my cooking lifestyle for the better, there wer
                             <div class="col-md-6 col-sm-6">
                                 <div class="blog-block">
                                     <div class="blog-img-box">
-                                    <h5 class="block-title text-center">Hysterical</h3>
+                                    <h5 class="block-title text-center">Hysterical..</h3>
                                         <img src="images/gap.jpeg" alt="" />
                                         <div class="overlay">
                                             <a href="https://devonclarebanfield-1221.medium.com/hysterical-9421ed76a027"><i class="fa fa-link" aria-hidden="true"></i></a>
