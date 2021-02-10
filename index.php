@@ -862,14 +862,13 @@ Even though the appliance changed my cooking lifestyle for the better, there wer
                             <div class="col-md-6 col-sm-6">
                                 <div class="blog-block">
                                     <div class="blog-img-box">
-                                        <img src= alt="" />
+                                    <h3>How to cut your fitness age by 30 years?</h3>
+                                        <img src="images/time.png" alt="" />
                                         <div class="overlay">
-                                            <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                            <a href="https://dmitri-konash.medium.com/how-to-cut-your-fitness-age-by-30-years-328f29e2ffa6"><i class="fa fa-link" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
-                                    <div class="blog-dit">
-                                        
-                                    </div>
+                                    <p>MyGarmin app made me a late New Year present on January 12th this year. It is a screenshot from Garmin app at the top of this article. I admit, it made me very happy! Earlier I made a post on my website (see profile) which explains why VO2Max, a number which shows how effectively your body processes oxygen, is such an important health indicator. In short: higher VO2Max translates in higher probability of living longer. The abovementioned post explains how scientists arrived at this conclusion and you if you know your number you can compare it to average population tables in my article. </p>
                                 </div>
                             </div>
                             <!-- end col -->
@@ -878,7 +877,7 @@ Even though the appliance changed my cooking lifestyle for the better, there wer
                     <!-- end blog-box -->
 
                     <div class="blog-btn-v">
-                        <a class="hvr-underline-from-center" href="#">View the Blog</a>
+                        <a class="hvr-underline-from-center" href="https://medium.com/">View the Blog</a>
                     </div>
 
                 </div>
